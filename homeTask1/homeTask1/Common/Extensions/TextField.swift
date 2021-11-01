@@ -11,7 +11,7 @@ import UIKit
 extension UITextField {
     func setForParametersOfCar() {
         font = AppLayout.Fonts.normalRegular
-        borderStyle = UITextField.BorderStyle.roundedRect
+        borderStyle = .roundedRect
         autocorrectionType = UITextAutocorrectionType.no
     }
 }

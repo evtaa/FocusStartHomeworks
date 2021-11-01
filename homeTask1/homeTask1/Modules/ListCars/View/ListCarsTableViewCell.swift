@@ -83,10 +83,10 @@ class ListCarsTableViewCell: UITableViewCell {
         let safeArea = contentView.safeAreaLayoutGuide
         contentView.addSubview(mainStackView)
         NSLayoutConstraint.activate(
-            [mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: AppLayout.ListCars.topCarCellView),
-             mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: AppLayout.ListCars.leadingCarCellView),
-             mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: AppLayout.ListCars.trailingCarCellView),
-             mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: AppLayout.ListCars.bottomCarCellView)
+            [mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: AppLayout.ListCarsTableViewCell.topCarCellView),
+             mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: AppLayout.ListCarsTableViewCell.leadingCarCellView),
+             mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: AppLayout.ListCarsTableViewCell.trailingCarCellView),
+             mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: AppLayout.ListCarsTableViewCell.bottomCarCellView)
             ])
     }
 }

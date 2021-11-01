@@ -39,6 +39,10 @@ final class CarViewModelFactory {
             newCarNumber = nil
         }
         
-        return CarViewModel(manufacturer: manufacturer, model: model, body: body, yearOfIssue: newYearOfIssue, carNumber: newCarNumber)
+        return CarViewModel(manufacturer: manufacturer,
+                            model: model,
+                            body: body,
+                            yearOfIssue: newYearOfIssue,
+                            carNumber: newCarNumber)
     }
 }

@@ -20,7 +20,7 @@ enum AppLayout {
         static var indentStackView: CGFloat = 16.0
         static var topStackView: CGFloat = 19.0
         static var widthStackView: CGFloat {
-            return AppLayout.widthScreen - (indentStackView*2)
+            return AppLayout.widthScreen-(indentStackView*2)
         }
         static var leadingStackView: CGFloat {
             return indentStackView
@@ -32,15 +32,18 @@ enum AppLayout {
         // MARK: - UITableView
         static var tableEstimatedRowHeight: CGFloat = 50.0
         
+        // MARK: - UIAddButton
+        static let heightAddButton: CGFloat = 52.0
+        static let indentFromBottomAddButton: CGFloat = 14
+    }
+    
+    enum ListCarsTableViewCell {
+        
         // MARK: - UITableViewCell
         static let leadingCarCellView: CGFloat = 14.0
         static let trailingCarCellView: CGFloat = -leadingCarCellView
         static let topCarCellView: CGFloat = 20.0
         static let bottomCarCellView: CGFloat = -topCarCellView
-        
-        // MARK: - UIAddButton
-        static let heightAddButton: CGFloat = 52.0
-        static let indentFromBottomAddButton: CGFloat = 14
     }
     
     enum DetailsCar {
@@ -48,7 +51,7 @@ enum AppLayout {
         static var indentStackView: CGFloat = 16.0
         static var topStackView: CGFloat = 19.0
         static var widthStackView: CGFloat {
-            return AppLayout.widthScreen - (indentStackView*2)
+            return AppLayout.widthScreen-(indentStackView*2)
         }
         static var leadingStackView: CGFloat {
             return indentStackView

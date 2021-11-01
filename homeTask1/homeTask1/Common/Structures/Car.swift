@@ -32,11 +32,5 @@ struct Car {
         self.carNumber = carNumber
     }
     
-    init() {
-        manufacturer = ""
-        model = ""
-        body = .sedan
-        yearsOfIssue = nil
-        carNumber = nil
-    }
+    init() {}
 }

@@ -13,6 +13,6 @@ extension UILabel {
         numberOfLines = 0
         textAlignment = .left
         font = AppLayout.Fonts.normalSemibold
-        textColor = .black
+        textColor = UIColor.label
     }
 }

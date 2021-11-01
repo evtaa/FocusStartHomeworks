@@ -88,7 +88,7 @@ class ListCarsView: UIView {
     
     // MARK: - ConfigureUI
     private func configureUI() {
-        backgroundColor = .white
+        backgroundColor = UIColor.systemBackground
         configureAddButton()
         configureStackView()
     }

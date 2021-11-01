@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class DetailsCarModuleBuilder {
-    static func build() -> DetailsCarViewController {
+final class DetailsCarModuleFabric {
+    static func vc() -> DetailsCarViewController {
         let vc = DetailsCarViewController()
         return vc
     }

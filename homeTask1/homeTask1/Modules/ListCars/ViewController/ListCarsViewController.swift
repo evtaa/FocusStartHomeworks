@@ -96,7 +96,7 @@ class ListCarsViewController: BaseViewController<ListCarsView> {
     
     //MARK: - Navigation
     private func goToDetailsCarViewController() {
-        let vc = DetailsCarModuleBuilder.build()
+        let vc = DetailsCarModuleFabric.vc()
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -173,6 +173,9 @@ extension ListCarsViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         rootView.typeOfBodyPickerView.isHidden = false
         return true
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 }
 

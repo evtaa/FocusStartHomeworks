@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class ListCarsModuleBuilder {
-    static func build() -> UINavigationController {
+final class ListCarsModuleFabric {
+    static func nc() -> UINavigationController {
         let vc = ListCarsViewController()
         let nc = UINavigationController(rootViewController: vc)
         return nc
