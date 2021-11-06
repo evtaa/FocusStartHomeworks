@@ -11,7 +11,7 @@ class ListCarsView: UIView {
     
     // MARK: - Subview
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [typeOfBodyStackView, tableView, addButton])
+        let stackView = UIStackView(arrangedSubviews: [tableView, addButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
@@ -20,38 +20,10 @@ class ListCarsView: UIView {
         return stackView
     }()
     
-    private lazy var typeOfBodyStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [typeOfBodyLabel, typeOfBodyTextField])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .fill
-        stackView.spacing = 0
-        return stackView
-    }()
-    
-    private let typeOfBodyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Body is"
-        label.font = AppLayout.Fonts.normalRegular
-        return label
-    }()
-    
     private(set) var typeOfBodyPickerView: UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.isHidden = true
         return pickerView
-    }()
-    
-    private(set) var typeOfBodyTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Enter the body of car"
-        textField.font = AppLayout.Fonts.normalRegular
-        textField.borderStyle = UITextField.BorderStyle.roundedRect
-        textField.autocorrectionType = UITextAutocorrectionType.no
-        textField.keyboardType = UIKeyboardType.default
-        return textField
     }()
     
     private(set) var tableView: UITableView = {
@@ -69,7 +41,7 @@ class ListCarsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 10
-        button.setTitle("Add", for: .normal)
+        button.setTitle(Text.add, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         button.setTitleColor(.black, for: .normal)
         button.isHidden = false

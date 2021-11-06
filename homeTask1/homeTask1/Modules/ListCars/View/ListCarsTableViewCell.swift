@@ -11,7 +11,11 @@ class ListCarsTableViewCell: UITableViewCell {
 
     // MARK: - Subviews
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [manufacturerLabel,modelLabel, bodyLabel, yearOfIssueLabel, carNumberLabel])
+        let stackView = UIStackView(arrangedSubviews: [manufacturerLabel,
+                                                       modelLabel,
+                                                       bodyLabel,
+                                                       yearOfIssueLabel,
+                                                       carNumberLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
@@ -83,10 +87,14 @@ class ListCarsTableViewCell: UITableViewCell {
         let safeArea = contentView.safeAreaLayoutGuide
         contentView.addSubview(mainStackView)
         NSLayoutConstraint.activate(
-            [mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: AppLayout.ListCarsTableViewCell.topCarCellView),
-             mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: AppLayout.ListCarsTableViewCell.leadingCarCellView),
-             mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: AppLayout.ListCarsTableViewCell.trailingCarCellView),
-             mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: AppLayout.ListCarsTableViewCell.bottomCarCellView)
+            [mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                constant: AppLayout.ListCarsTableViewCell.topCarCellView),
+             mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
+                                                    constant: AppLayout.ListCarsTableViewCell.leadingCarCellView),
+             mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor,
+                                                     constant: AppLayout.ListCarsTableViewCell.trailingCarCellView),
+             mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor,
+                                                   constant: AppLayout.ListCarsTableViewCell.bottomCarCellView)
             ])
     }
 }

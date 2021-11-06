@@ -18,10 +18,10 @@ struct CarViewModel {
 final class CarViewModelFactory {
     
     static func cellModel (from car: Car) -> CarViewModel {
-        let manufacturer: String = "The manufacturer: \(car.manufacturer)"
-        let model: String = "The model: \(car.model)"
-        let body: String = "The body: \(car.body)"
-        var newYearOfIssue: String = "The year of an issue: "
+        let manufacturer: String = "\(Text.manufacturerIs) \(car.manufacturer)"
+        let model: String = "\(Text.modelIs) \(car.model)"
+        let body: String = "\(Text.bodyIs) \(car.body.rawValue)"
+        var newYearOfIssue: String = "\(Text.yearOfIssueIs) "
         var newCarNumber: String? = ""
         
         if let yearOfIssue = car.yearsOfIssue,
@@ -34,7 +34,7 @@ final class CarViewModelFactory {
         if let carNumber = car.carNumber,
            String(carNumber) != ""
            {
-            newCarNumber! += "The car number: \(carNumber)"
+            newCarNumber! += "\(Text.carNumberIs) \(carNumber)"
         } else {
             newCarNumber = nil
         }

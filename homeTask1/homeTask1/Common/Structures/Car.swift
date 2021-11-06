@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum BodyOfCar: String, CaseIterable {
-    case sedan
-    case hatchback
-    case universal
-    case coupe
-}
-
 struct Car {
     
     // MARK: - Properties
@@ -24,7 +17,11 @@ struct Car {
     var carNumber: String? = nil
     
     // MARK: - Inits
-    init(manufacturer: String, model: String, body: BodyOfCar, yearsOfIssue: Int?, carNumber: String?) {
+    init(manufacturer: String,
+         model: String,
+         body: BodyOfCar,
+         yearsOfIssue: Int?,
+         carNumber: String?) {
         self.manufacturer = manufacturer
         self.model = model
         self.body = body

@@ -24,72 +24,79 @@ class DetailsCarView: UIView {
         return stackView
     }()
     
+    private(set) var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    } ()
+    
     private let manufacturerLabel: UILabel = {
         let label = UILabel()
         label.setForParametersOfCar()
-        label.text = "The manufacturer is"
+        label.text = Text.manufacturerIs
         return label
     } ()
     
     private let modelLabel: UILabel = {
         let label = UILabel()
         label.setForParametersOfCar()
-        label.text = "The model is"
+        label.text = Text.modelIs
         return label
     } ()
     
     private let bodyLabel: UILabel = {
         let label = UILabel()
         label.setForParametersOfCar()
-        label.text = "The body is"
+        label.text = Text.bodyIs
         return label
     } ()
     
     private let yearOfIssueLabel: UILabel = {
         let label = UILabel()
         label.setForParametersOfCar()
-        label.text = "The year of issue is"
+        label.text = Text.yearOfIssueIs
         return label
     } ()
     
     private let carNumberLabel: UILabel = {
         let label = UILabel()
         label.setForParametersOfCar()
-        label.text = "The car number is"
+        label.text = Text.carNumberIs
         return label
     } ()
     
      let manufacturerTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter the car manufacturer"
+        textField.placeholder = Text.manufacturerEnter
         textField.setForParametersOfCar()
         return textField
     }()
     
     let modelTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter the car model"
+        textField.placeholder = Text.modelEnter
         textField.setForParametersOfCar()
         return textField
     }()
     
     let bodyTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter the car body"
+        textField.placeholder = Text.bodyEnter
         textField.setForParametersOfCar()
         return textField
     }()
     
     let yearOfIssueTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter the car year of issue"
+        textField.keyboardType = .numberPad
+        textField.placeholder = Text.yearOfIssueEnter
         textField.setForParametersOfCar()
         return textField
     }()
     
     let carNumberTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter the car number"
+        textField.placeholder = Text.carNumberEnter
         textField.setForParametersOfCar()
         return textField
     }()
@@ -114,8 +121,23 @@ class DetailsCarView: UIView {
     private func configureUI() {
         backgroundColor = .white
         configureLabelsForMainStackView()
+        configureScrollView()
         configureTextFieldsForMainStackView()
         configureMainStackView()
+    }
+    
+    private func configureScrollView() {
+        addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: scrollView.frameLayoutGuide.topAnchor),
+            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: scrollView.frameLayoutGuide.bottomAnchor)
+        ])
     }
     
     private func configureLabelsForMainStackView() {
@@ -141,13 +163,14 @@ class DetailsCarView: UIView {
     }
     
     private func configureMainStackView() {
-        addSubview(mainStackView)
-        let safeArea = safeAreaLayoutGuide
+        let scrollArea = self.scrollView.contentLayoutGuide
+        scrollView.addSubview(mainStackView)
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: AppLayout.DetailsCar.topStackView),
-            mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
+            mainStackView.topAnchor.constraint(equalTo: scrollArea.topAnchor,
+                                               constant: AppLayout.DetailsCar.topStackView),
+            mainStackView.leadingAnchor.constraint(equalTo: scrollArea.leadingAnchor,
                                                constant: AppLayout.DetailsCar.leadingStackView),
-            mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor,
+            mainStackView.trailingAnchor.constraint(equalTo: scrollArea.trailingAnchor,
                                                 constant: AppLayout.ListCars.trailingStackView)
         ])
     }

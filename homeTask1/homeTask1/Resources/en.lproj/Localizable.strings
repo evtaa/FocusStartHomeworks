@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  homeTask1
+
+  Created by Alexandr Evtodiy on 06.11.2021.
+  
+*/
+
+"Car" = "Car";
+
+// MARK: - Alarm
+"notification" = "Notification";
+"OK" = "OK";
+"failedCarManufacturer" = "You did't enter a car manufacturer.";
+"failedCarModel" = "You didn't enter a car model.";
+"failedInputNumberCarYearOfIssue" = "You should enter number for a car year of an issue. No string.";
+"failedCountOfNumberCarYearOfIssue" = "Maximum character of year of an issue should be four.";
+
+// MARK: - ListCars
+"add" = "Add";
+"every" = "every";
+"sedan" = "sedan";
+"hatchback" = "hatchback";
+"universal" = "universal";
+"coupe" = "coupe";
+"bodySearch" = "Searching by body";
+
+// MARK: - CarViewModel
+"manufacturerIs" = "The manufacturer:";
+"modelIs" = "The model:";
+"bodyIs" = "The body:";
+"yearOfIssueIs" = "The year of an issue:";
+"carNumberIs" = "The car number:";
+
+// MARK: - DetailCar
+"Done" = "Done";
+"manufacturerEnter" = "Enter the car manufacturer";
+"modelEnter" = "Enter the car model";
+"bodyEnter" = "Enter the car body";
+"yearOfIssueEnter" = "Enter the car year of issue";
+"carNumberEnter" = "Enter the car number";

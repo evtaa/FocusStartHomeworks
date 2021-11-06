@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  homeTask1
+
+  Created by Alexandr Evtodiy on 06.11.2021.
+  
+*/
+
+"Car" = "Автомобиль";
+
+// MARK: - Alarm
+"notification" = "Уведомление";
+"OK" = "ОК";
+"failedCarManufacturer" = "Вы не ввели производителя автомобиля";
+"failedCarModel" = "Вы не ввели модель автомобиля";
+"failedInputNumberCarYearOfIssue" = "Вам следует ввести год только цифрами";
+"failedCountOfNumberCarYearOfIssue" = "Максимальное количество символов в годе производства автомобиля должно быть четыре";
+
+// MARK: - ListCars
+"add" = "Добавить";
+"every" = "Все";
+"sedan" = "Седан";
+"hatchback" = "Хэтчбэк";
+"universal" = "Универсал";
+"coupe" = "Купе";
+"bodySearch" = "Поиск по кузову";
+
+// MARK: - CarViewModel
+"manufacturerIs" = "Производитель:";
+"modelIs" = "Модель:";
+"bodyIs" = "Тип кузова:";
+"yearOfIssueIs" = "Год выпуска:";
+"carNumberIs" = "Номер автомобиля:";
+
+// MARK: - DetailCar
+"Done" = "Далее";
+"manufacturerEnter" = "Введите производителя автомобиля";
+"modelEnter" = "Введите модель автомобиля";
+"bodyEnter" = "Выберите кузов автомобиля";
+"yearOfIssueEnter" = "Введите год выпуска авто";
+"carNumberEnter" = "Введите номер авто";

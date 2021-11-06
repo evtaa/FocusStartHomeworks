@@ -9,7 +9,7 @@ import UIKit
 
 class BaseViewController<ViewType: UIView>: UIViewController {
     var rootView: ViewType {
-        self.view as! ViewType
+        self.view as? ViewType ?? ViewType()
     }
     
     override func loadView() {
