@@ -77,7 +77,9 @@ public extension ThreadSafeArray {
             return result
         }
         set {
-            guard let newValue = newValue else { return }
+            guard let newValue = newValue,
+                  self.array.startIndex..<self.array.endIndex ~= index
+            else { return }
             queue.async(flags: .barrier) {
                 self.array[index] = newValue
             }
