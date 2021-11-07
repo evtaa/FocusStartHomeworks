@@ -11,7 +11,7 @@ protocol DetailsCarViewControllerDelegate {
     func getNewCar(car: Car)
 }
 
-internal class DetailsCarViewController: BaseViewController<DetailsCarView>, ShowAlert {
+internal class DetailsCarViewController: BaseViewController<DetailsCarView> {
     // MARK: - Properties
     var alertNotifications: AlertNotificationsProtocol
     var activeField: UITextField?

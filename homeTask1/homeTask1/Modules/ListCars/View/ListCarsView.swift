@@ -10,9 +10,8 @@ import UIKit
 class ListCarsView: UIView {
     
     // MARK: - Subview
-    private lazy var stackView: UIStackView = {
+    private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [tableView, addButton])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -28,7 +27,6 @@ class ListCarsView: UIView {
     
     private(set) var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.estimatedRowHeight = AppLayout.ListCars.tableEstimatedRowHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = .white
@@ -38,7 +36,6 @@ class ListCarsView: UIView {
     
     private(set) var addButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 10
         button.setTitle(Text.add, for: .normal)
@@ -62,24 +59,27 @@ class ListCarsView: UIView {
     private func configureUI() {
         backgroundColor = UIColor.systemBackground
         configureAddButton()
-        configureStackView()
+        configureMainStackView()
     }
     
     private func configureAddButton() {
+        addButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(
             [addButton.heightAnchor.constraint(equalToConstant: AppLayout.ListCars.heightAddButton)])
     }
     
-    private func configureStackView() {
-        addSubview(stackView)
+    private func configureMainStackView() {
+        
         let safeArea = safeAreaLayoutGuide
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(mainStackView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 19.0),
-            stackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
+            mainStackView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 19.0),
+            mainStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
                                                constant: AppLayout.ListCars.leadingStackView),
-            stackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor,
+            mainStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor,
                                                 constant: AppLayout.ListCars.trailingStackView),
-            stackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor,
+            mainStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor,
                                               constant: -AppLayout.ListCars.indentFromBottomAddButton)
         ])
     }

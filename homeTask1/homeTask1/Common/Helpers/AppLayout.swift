@@ -17,10 +17,10 @@ enum AppLayout {
     enum ListCars {
     
         // MARK: - UIStackView
-        static var indentStackView: CGFloat = 16.0
-        static var topStackView: CGFloat = 19.0
+        static let indentStackView: CGFloat = 16.0
+        static let topStackView: CGFloat = 19.0
         static var widthStackView: CGFloat {
-            return AppLayout.widthScreen-(indentStackView*2)
+            return AppLayout.widthScreen - 2*indentStackView
         }
         static var leadingStackView: CGFloat {
             return indentStackView
@@ -30,7 +30,7 @@ enum AppLayout {
         }
         
         // MARK: - UITableView
-        static var tableEstimatedRowHeight: CGFloat = 50.0
+        static let tableEstimatedRowHeight: CGFloat = 50.0
         
         // MARK: - UIAddButton
         static let heightAddButton: CGFloat = 52.0
@@ -48,10 +48,10 @@ enum AppLayout {
     
     enum DetailsCar {
         // MARK: - UIStackView
-        static var indentStackView: CGFloat = 16.0
-        static var topStackView: CGFloat = 19.0
+        static let indentStackView: CGFloat = 16.0
+        static let topStackView: CGFloat = 19.0
         static var widthStackView: CGFloat {
-            return AppLayout.widthScreen-(indentStackView*2)
+            return AppLayout.widthScreen - 2*indentStackView
         }
         static var leadingStackView: CGFloat {
             return indentStackView
@@ -59,13 +59,13 @@ enum AppLayout {
         static var trailingStackView: CGFloat {
             return -indentStackView
         }
-        static var bottomStackView: CGFloat = 19.0
+        static let bottomStackView: CGFloat = 19.0
         
         // MARK: - UILabel
-        static var heightOfParameterOfCarLabel: CGFloat = 40.0
+        static let heightOfParameterOfCarLabel: CGFloat = 40.0
         
         // MARK: - UITextField
-        static var heightOfParameterOfCarTextField: CGFloat = 40.0
+        static let heightOfParameterOfCarTextField: CGFloat = 40.0
     }
     
     enum Fonts {

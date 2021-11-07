@@ -16,7 +16,6 @@ class DetailsCarView: UIView {
                                         bodyLabel, bodyTextField,
                                         yearOfIssueLabel,yearOfIssueTextField,
                                         carNumberLabel, carNumberTextField ])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .fill
@@ -26,7 +25,6 @@ class DetailsCarView: UIView {
     
     private(set) var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     } ()
     
@@ -65,7 +63,7 @@ class DetailsCarView: UIView {
         return label
     } ()
     
-     let manufacturerTextField: UITextField = {
+    let manufacturerTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = Text.manufacturerEnter
         textField.setForParametersOfCar()
@@ -127,6 +125,7 @@ class DetailsCarView: UIView {
     }
     
     private func configureScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -142,6 +141,11 @@ class DetailsCarView: UIView {
     
     private func configureLabelsForMainStackView() {
         let height = AppLayout.DetailsCar.heightOfParameterOfCarLabel
+        manufacturerLabel.translatesAutoresizingMaskIntoConstraints = false
+        modelLabel.translatesAutoresizingMaskIntoConstraints = false
+        bodyLabel.translatesAutoresizingMaskIntoConstraints = false
+        yearOfIssueLabel.translatesAutoresizingMaskIntoConstraints = false
+        carNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             manufacturerLabel.heightAnchor.constraint(equalToConstant: height),
             modelLabel.heightAnchor.constraint(equalToConstant: height),
@@ -153,6 +157,11 @@ class DetailsCarView: UIView {
     
     private func configureTextFieldsForMainStackView() {
         let height = AppLayout.DetailsCar.heightOfParameterOfCarTextField
+        manufacturerTextField.translatesAutoresizingMaskIntoConstraints = false
+        modelTextField.translatesAutoresizingMaskIntoConstraints = false
+        bodyTextField.translatesAutoresizingMaskIntoConstraints = false
+        yearOfIssueTextField.translatesAutoresizingMaskIntoConstraints = false
+        carNumberTextField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             manufacturerTextField.heightAnchor.constraint(equalToConstant: height),
             modelTextField.heightAnchor.constraint(equalToConstant: height),
@@ -164,6 +173,7 @@ class DetailsCarView: UIView {
     
     private func configureMainStackView() {
         let scrollArea = self.scrollView.contentLayoutGuide
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(mainStackView)
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: scrollArea.topAnchor,
