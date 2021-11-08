@@ -10,28 +10,31 @@ import Foundation
 typealias Type = Int
 var array = ThreadSafeArray<Type>()
 let group = DispatchGroup()
-let myGlobalQueue = DispatchQueue.global()
+let myGlobalQueue = DispatchQueue(label: "evtaa.someNameForQueue", qos: .userInitiated, attributes: .concurrent)
 
-func appendToArray(element: Type) {
+func appendToThreadSafeArray<T>(element: T) {
     for _ in 0...1000 {
+        guard let element = element as? Type
+        else {return}
         array.append(element)
     }
 }
 
 myGlobalQueue.async(group: group) {
-    appendToArray(element: 1)
+    appendToThreadSafeArray(element: 1)
 }
 
 myGlobalQueue.async(group: group) {
-    appendToArray(element: 2)
+    appendToThreadSafeArray(element: 2)
 }
-
 
 group.notify(queue: myGlobalQueue) {
     print(array.count)
+    
 }
 
 sleep(3)
+
 
 
 

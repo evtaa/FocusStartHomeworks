@@ -9,27 +9,17 @@ import Foundation
 
 protocol ThreadSafeArrayProtocol {
     associatedtype Element
-    var queue: DispatchQueue { get }
-    var array:[Element] { get }
     var count: Int{ get }
     var isEmpty: Bool { get }
     func append( _ item: Element)
     func remove(at index: Int)
-    subscript(index: Int) -> Element? { get set }
-}
-
-extension ThreadSafeArrayProtocol where Element: Equatable {
-    func contains(_ element: Element) -> Bool {
-        var result = false
-        queue.sync { result = self.array.contains(element) }
-        return result
-    }
+    subscript(index: Int) -> Element { get set }
 }
 
 public class ThreadSafeArray<Element>: ThreadSafeArrayProtocol {
-    internal var queue = DispatchQueue(label: "evtaa.ThreadSafeArray",
+    var queue = DispatchQueue(label: "evtaa.ThreadSafeArray",
                                        attributes: .concurrent)
-    internal var array = [Element]()
+    var array = [Element]()
 }
 
 // MARK: - Properties
@@ -66,9 +56,9 @@ public extension ThreadSafeArray {
 
 // MARK: - Subscript
 public extension ThreadSafeArray {
-    subscript(index: Int) -> Element? {
+    subscript(index: Int) -> Element {
         get {
-            var result: Element?
+            var result: Element!
             queue.sync {
                 guard self.array.startIndex..<self.array.endIndex ~= index
                 else { return }
@@ -77,12 +67,19 @@ public extension ThreadSafeArray {
             return result
         }
         set {
-            guard let newValue = newValue,
-                  self.array.startIndex..<self.array.endIndex ~= index
-            else { return }
             queue.async(flags: .barrier) {
+                guard self.array.startIndex..<self.array.endIndex ~= index
+                else { return }
                 self.array[index] = newValue
             }
         }
+    }
+}
+
+public extension ThreadSafeArray where Element: Equatable {
+    func contains(_ element: Element) -> Bool {
+        var result = false
+        queue.sync { result = self.array.contains(element) }
+        return result
     }
 }
