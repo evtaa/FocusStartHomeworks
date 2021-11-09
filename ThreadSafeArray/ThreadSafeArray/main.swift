@@ -12,20 +12,18 @@ var array = ThreadSafeArray<Type>()
 let group = DispatchGroup()
 let myGlobalQueue = DispatchQueue(label: "evtaa.someNameForQueue", qos: .userInitiated, attributes: .concurrent)
 
-func appendToThreadSafeArray<T>(element: T) {
+func appendToThreadSafeArray<T>(element: T, array: inout ThreadSafeArray<T>) {
     for _ in 0...1000 {
-        guard let element = element as? Type
-        else {return}
         array.append(element)
     }
 }
 
 myGlobalQueue.async(group: group) {
-    appendToThreadSafeArray(element: 1)
+    appendToThreadSafeArray(element: 1, array: &array)
 }
 
 myGlobalQueue.async(group: group) {
-    appendToThreadSafeArray(element: 2)
+    appendToThreadSafeArray(element: 2, array: &array)
 }
 
 group.notify(queue: myGlobalQueue) {
