@@ -1,0 +1,94 @@
+/* 
+  Localizable.strings
+  myCV
+
+  Created by Alexandr Evtodiy on 10.11.2021.
+  
+*/
+
+// MARK: - Tabs
+"personalInfo" = "Personal";
+"profile" = "Profile";
+"interests" = "Interests";
+
+// MARK: - Personal info
+"name" = "Alexander Evtodiy";
+"age" = "32";
+"address" = "Saint-Petersburg, Russia";
+"mobile" = "8-904-615-54-58";
+"nationality" = "Russian";
+"email" = "alex.evtodiy@gmail.com";
+"firstHeaderInfoOfEducationItem" = "St. Petersburg State Electrotechnical University \"LETI\" named after V.I. Ulyanov (Lenin), St. Petersburg";
+"firstInfoOfEducationItem" =  "Faculty of Electrical Engineering and Automation, Department of Automatic Control Systems (ACS), 220200 «Automation and Control», Baccalaureate" ;
+"secondHeaderInfoOfEducationItem" = "St. Petersburg State Electrotechnical University \"LETI\" named after V.I. Ulyanov (Lenin), St. Petersburg";
+"secondInfoOfEducationItem" = "Faculty of Electrical Engineering and Automation, Department of Automatic Control Systems (ACS), «Electrification and Automation of ships», Master's degree";
+"thirdHeaderInfoOfEducationItem" = "GeekBrains";
+"thirdInfoOfEducationItem" = "Faculty of iOS Development";
+
+// MARK: - Profile
+"demoProfile" = "Welcome. I am an iOS developer who wants to use and develop my app development skills.";
+"info" = "- I know the principles of OOP, SOLID
+- Experience in developing custom UI
+- Ability to work with the GCD library, Operation
+- Work with the network. With network protocols HTTP, TCP. Ownership of the Alamofire, URLSession libraries.
+- Understanding the principles of the basic architectural patterns of MVC, MVVM, MVP, VIPER.
+- Worked with KeyChain, Userdefaults, Sandbox, Realm, FirebaseDatabase
+- Little experience with GoogleMaps
+- I own the iOS SDK, the main frameworks (Foundation, UIKit)
+- I own a version control system (Git), GitFlow, SwiftLint.
+- Intermediate English";
+"additionalInfo" = "Also, as part of my current work, I known C, Assembler, Verilog.
+As part of his studies at GeekBrains University, he was engaged in the development of mobile applications:
+1) A client for a social network in Vkontakte on Swift
+2) Online store template on Swift
+3) Location Tracker on Swift
+4) Flight search apps for Objective C";
+
+"firstCompanyOfWorkExperienceItem" = "Branch of \"Central Research Institute of Marine Electrical Engineering and Technology\" \"KGNC\"";
+"firstPositionOfWorkExperienceItem" = "enginier";
+"firstResponsibilitiesOfWorkExperienceItem" = "Development of mathematical models of electric propulsion systems";
+"secondCompanyOfWorkExperienceItem" = "Branch of \"Central Research Institute of Marine Electrical Engineering and Technology\" \"KGNC\"";
+"secondPositionOfWorkExperienceItem" = "lead engineer";
+"secondResponsibilitiesOfWorkExperienceItem" = "- Mathematical modeling of electric propulsion systems in MATLAB Simulink
+- Development of algorithms for controlling frequency converters
+- Software development for microcontrollers using the C language
+- Software development for FPGAs using the Verilog language
+- Implementation of information exchange via RS-485 (Modbus RTU), SPI (information exchange, sensor polling)
+- Development of documentation for equipment and software";
+"thirdCompanyOfWorkExperienceItem" = "Branch of \"Central Research Institute of Marine Electrical Engineering and Technology\" \"KGNC\"";
+"thirdPositionOfWorkExperienceItem" = "head of department";
+"thirdResponsibilitiesOfWorkExperienceItem" = "- Management of a six-person sector
+- Work planning
+- Project management for the development of electrical equipment
+- Software development";
+
+// MARK: - PersonalInfoController
+"nameIs" = "Name";
+"ageIs" = "Age";
+"addressIs" = "Address";
+"mobileIs" = "Phone number";
+"nationalityIs" = "Nationality";
+"emailIs" = "Email";
+"segmentCommon" = "Common";
+"segmentEducation" = "Education";
+
+// MARK: - ProfileViewController
+"segmentProfile" = "Profile";
+"segmentWorkExperience" = "Experience";
+"year" = "years";
+"month" = "months";
+
+// MARK: - InterestsViewController
+"segmentInterests" = "Interests" ;
+"segmentPhoto" = "Photos" ;
+"interestsInfo" = "One of my main hobbies is programming. In addition, if there is time left, there are others:
+- intres to software and technical innovations
+- study of professional literature
+- I play basketball
+- skiing
+- I go swimming
+- I'm going out of town with tents
+- I work out sometimes in the gym
+- I ride a bike
+- I go fishing
+- generating fireball discharges";

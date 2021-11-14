@@ -7,4 +7,7 @@
    <FileRef
       location = "group:ThreadSafeArray/ThreadSafeArray.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:myCV/myCV.xcodeproj">
+   </FileRef>
 </Workspace>
