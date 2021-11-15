@@ -45,7 +45,6 @@ final class ProfileController: BaseViewController<ProfileView> {
     private func configureTableView() {
         rootView.workExperienceTableView.register(WorkExperienceProfileCell.self)
         rootView.workExperienceTableView.dataSource = self
-        rootView.workExperienceTableView.delegate = self
     }
     
     // MARK: - Private functions
@@ -110,8 +109,5 @@ extension ProfileController: UITableViewDataSource {
     }
 }
 
-extension ProfileController: UITableViewDelegate {
-    
-}
 
     

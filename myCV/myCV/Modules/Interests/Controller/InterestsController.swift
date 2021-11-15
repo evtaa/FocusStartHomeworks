@@ -110,9 +110,6 @@ extension InterestsController: UICollectionViewDataSource {
     }
 }
 
-extension InterestsController: UICollectionViewDelegate {
-}
-
 extension InterestsController: UICollectionViewDelegateFlowLayout {
     
     

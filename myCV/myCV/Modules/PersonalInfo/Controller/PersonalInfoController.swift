@@ -45,7 +45,6 @@ final class PersonalInfoController: BaseViewController<PersonalInfoView> {
     private func configureTableView() {
         rootView.educationTableView.register(EducationPersonalInfoCell.self)
         rootView.educationTableView.dataSource = self
-        rootView.educationTableView.delegate = self
     }
     
     // MARK: - Private functions
@@ -110,6 +109,3 @@ extension PersonalInfoController: UITableViewDataSource {
     }
 }
 
-extension PersonalInfoController: UITableViewDelegate {
-    
-}
