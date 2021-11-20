@@ -13,7 +13,6 @@ enum AppText {
     enum NavigationBar {
         static let album = "Альбом"
         static let info = "Инфо"
-        static let image = "Изображение"
     }
     
     // MARK: - ImagesCollection

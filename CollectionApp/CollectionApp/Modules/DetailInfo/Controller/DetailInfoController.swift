@@ -28,8 +28,12 @@ final class DetailInfoController: BaseViewController<DetailInfoView> {
         super.viewDidLoad()
         configure()
     }
+
+    override func viewWillLayoutSubviews() {
+       configureConstraintsToImageView()
+    }
     
-    override func viewDidLayoutSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
         configureConstraintsToImageView()
     }
     
@@ -60,7 +64,7 @@ final class DetailInfoController: BaseViewController<DetailInfoView> {
         let height = image.image .size.height
         let width = image.image.size.width
         let ratio = height/width
-        let widthImage = AppLayout.halfScreen
+        let widthImage = rootView.bounds.size.width/2
         let heightImage = ratio * widthImage
         rootView.configureImageViewConstraint(heightOfImageView: heightImage, widthOfImageView: widthImage)
     }
@@ -70,10 +74,9 @@ final class DetailInfoController: BaseViewController<DetailInfoView> {
         goToFullImage(image: image)
     }
     
-    
     // MARK: Navigation
     private func goToFullImage(image: Image) {
-        let vc = FullImageController(image: image)
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = FullImageAssembler.assemble(with: image)
+        present(vc, animated: true, completion: nil)
     }
 }

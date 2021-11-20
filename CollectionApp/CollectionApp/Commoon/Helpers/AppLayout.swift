@@ -12,7 +12,9 @@ enum AppLayout {
     static var widthScreen: CGFloat = {
         UIScreen.main.bounds.size.width
     }()
-    static var halfScreen: CGFloat = widthScreen/2
+    static var halfScreen: CGFloat = {
+        UIScreen.main.bounds.size.width/2
+    }()
     static let cornerRadius: CGFloat = 15.0
     
     enum ImageCell {
@@ -42,7 +44,7 @@ enum AppLayout {
     enum FullImage {
         
         // MARK: - ScrollView
-        static let bottomContentScrollView: CGFloat = 0.0
+        static let bottomContentScrollView: CGFloat = 50.0
         static let topScrollView: CGFloat = 10.0
         static let leadingScrollView: CGFloat = 10.0
         static let trailingScrollView: CGFloat = -leadingScrollView

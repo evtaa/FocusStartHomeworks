@@ -7,19 +7,28 @@
 
 import UIKit
 
+typealias  DataSource  =  UICollectionViewDiffableDataSource < Section , Image >
+typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Image>
+
+enum Section {
+    case main
+}
+
 final class ImagesCollectionController: BaseViewController<ImagesCollectionView> {
     
     // MARK: - Properties
     private var images: [Image]?
+    private lazy var dataSource = makeDataSource()
     
     // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        applySnapshot(animatingDifferences: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        rootView.collectionView.reloadData()
+        applySnapshot(animatingDifferences: false)
     }
     
     // MARK: - Configure
@@ -38,7 +47,6 @@ final class ImagesCollectionController: BaseViewController<ImagesCollectionView>
     
     private func configureCollectionView() {
         rootView.collectionView.register(ImageCollectionCell.self)
-        rootView.collectionView.dataSource = self
         rootView.collectionView.delegate = self
     }
     
@@ -72,34 +80,37 @@ final class ImagesCollectionController: BaseViewController<ImagesCollectionView>
     
     // MARK: - Rotate orientation
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        rootView.collectionView.performBatchUpdates(nil, completion: nil)
+        applySnapshot(animatingDifferences: false)
+    }
+    
+    // MARK: - DiffableDataSource
+    func makeDataSource() -> DataSource {
+        let dataSource = DataSource(collectionView: rootView.collectionView,
+                                    cellProvider: { (collectionView, indexPath, image) -> ImageCollectionCell? in
+                                        let cell = collectionView.dequeueReusableCell(ofType: ImageCollectionCell.self, for: indexPath)
+                                        
+                                        let ratio = image.image.size.height/image.image.size.width
+                                        let widthCell = self.getWidthOfPhotoCollectionView(for: collectionView, spacing: AppLayout.ImageCell.spacing)
+                                        let heightLabel = self.getLabelTextSize(text: image.name, font: AppFonts.smallSystem, maxWidthLabel: widthCell).height
+                                        let heightImageForCell = ceil(ratio * widthCell)
+                                        cell.configureConstraint(heightImage: heightImageForCell, heightLabel: heightLabel)
+                                        
+                                        cell.configure(with: ImageViewModelFactory.viewModel(from: image))
+                                        return cell
+                                    })
+        return dataSource
+    }
+    
+    func applySnapshot (animatingDifferences: Bool = true) {
+        guard let images = images else {return}
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(images)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 
-extension ImagesCollectionController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = images?.count else { return 0 }
-        return count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(ofType: ImageCollectionCell.self, for: indexPath)
-        guard let image = images?[indexPath.row] else { return cell}
-        let imageViewModel = ImageViewModelFactory.viewModel(from: image)
-        let ratio = image.image.size.height/image.image.size.width
-        let widthCell = getWidthOfPhotoCollectionView(for: collectionView, spacing: AppLayout.ImageCell.spacing)
-        let heightLabel = getLabelTextSize(text: image.name, font: AppFonts.smallSystem, maxWidthLabel: widthCell).height
-        let heightImageForCell = ceil(ratio * widthCell)
-        cell.configureConstraint(heightImage: heightImageForCell, heightLabel: heightLabel)
-        cell.configure(with: imageViewModel)
-        return cell
-    }
-}
-
+// MARK: - UICollectionViewDelegateFlowLayout
 extension ImagesCollectionController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -118,8 +129,8 @@ extension ImagesCollectionController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let imagesItem = images?[indexPath.row]
-        else { return CGSize() }
+        guard let imagesItem = dataSource.itemIdentifier(for: indexPath)
+        else {return CGSize()}
         let ratio = imagesItem.image.size.height/imagesItem.image.size.width
         let widthCell = getWidthOfPhotoCollectionView(for: collectionView, spacing: AppLayout.ImageCell.spacing)
         let heightLabel = getLabelTextSize(text: imagesItem.name, font: AppFonts.smallSystem, maxWidthLabel: widthCell).height
@@ -134,7 +145,7 @@ extension ImagesCollectionController: UICollectionViewDelegateFlowLayout {
 
 extension ImagesCollectionController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let image = images?[indexPath.row]
+        guard let image = dataSource.itemIdentifier(for: indexPath)
         else {return}
         goToDetailInfo(image: image)
     }

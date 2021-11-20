@@ -31,16 +31,10 @@ final class FullImageController: BaseViewController<FullImageView> {
     override func viewDidLayoutSubviews() {
         configureConstraintsToImageView()
     }
-    
+
     // MARK: - Configure
     private func configure() {
-        configureNavigationBar()
         configureFullImageView()
-    }
-    
-    private func configureNavigationBar() {
-        title = AppText.NavigationBar.image
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppFonts.systemBold]
     }
     
     private func configureFullImageView() {
