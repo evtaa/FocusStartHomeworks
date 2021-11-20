@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A82D1498274804FA00F17D1F /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D1497274804F900F17D1F /* DetailInfoView.swift */; };
+		A82D149B274809A400F17D1F /* DetailInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D149A274809A400F17D1F /* DetailInfoController.swift */; };
+		A82D149E27480C4000F17D1F /* DetailInfoAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82D149D27480C4000F17D1F /* DetailInfoAssembler.swift */; };
 		A8C7AB612746B7F500C3B87B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7AB602746B7F500C3B87B /* AppDelegate.swift */; };
 		A8C7AB632746B7F500C3B87B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C7AB622746B7F500C3B87B /* SceneDelegate.swift */; };
 		A8C7AB6A2746B80000C3B87B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8C7AB692746B80000C3B87B /* Assets.xcassets */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A82D1497274804F900F17D1F /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
+		A82D149A274809A400F17D1F /* DetailInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoController.swift; sourceTree = "<group>"; };
+		A82D149D27480C4000F17D1F /* DetailInfoAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoAssembler.swift; sourceTree = "<group>"; };
 		A8C7AB5D2746B7F500C3B87B /* CollectionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8C7AB602746B7F500C3B87B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8C7AB622746B7F500C3B87B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				A8C7AB822746BD8300C3B87B /* ImagesCollection */,
+				A8C7AB832746BDB700C3B87B /* DetailInfo */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -174,6 +181,40 @@
 				A8C7AB812746BD6C00C3B87B /* Assemble */,
 			);
 			path = ImagesCollection;
+			sourceTree = "<group>";
+		};
+		A8C7AB832746BDB700C3B87B /* DetailInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7AB852746BDD300C3B87B /* View */,
+				A8C7AB862746BDD700C3B87B /* Controller */,
+				A8C7AB842746BDCA00C3B87B /* Assemble */,
+			);
+			path = DetailInfo;
+			sourceTree = "<group>";
+		};
+		A8C7AB842746BDCA00C3B87B /* Assemble */ = {
+			isa = PBXGroup;
+			children = (
+				A82D149D27480C4000F17D1F /* DetailInfoAssembler.swift */,
+			);
+			path = Assemble;
+			sourceTree = "<group>";
+		};
+		A8C7AB852746BDD300C3B87B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A82D1497274804F900F17D1F /* DetailInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A8C7AB862746BDD700C3B87B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A82D149A274809A400F17D1F /* DetailInfoController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A8C7AB8B2746BE1500C3B87B /* Structures */ = {
@@ -328,8 +369,11 @@
 				A8C7AB612746B7F500C3B87B /* AppDelegate.swift in Sources */,
 				A8C7AB632746B7F500C3B87B /* SceneDelegate.swift in Sources */,
 				A8C7ABAA2746D2E500C3B87B /* ImageCollectionCell.swift in Sources */,
+				A82D149E27480C4000F17D1F /* DetailInfoAssembler.swift in Sources */,
 				A8C7AB912746BFAF00C3B87B /* Image.swift in Sources */,
+				A82D149B274809A400F17D1F /* DetailInfoController.swift in Sources */,
 				A8C7ABBC2746D9AA00C3B87B /* AutoReusable.swift in Sources */,
+				A82D1498274804FA00F17D1F /* DetailInfoView.swift in Sources */,
 				A8C7AB9A2746C6A600C3B87B /* AppText.swift in Sources */,
 				A8C7AB952746C00600C3B87B /* ImagesMock.swift in Sources */,
 			);

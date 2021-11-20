@@ -21,4 +21,21 @@ enum AppLayout {
         static let subtractFromWidthPhoto: CGFloat = 5.0
         static let topLabel: CGFloat = 5.0
     }
+    
+    enum DetailInfo {
+        
+        // MARK: - ScrollView
+        static let bottomContentScrollView: CGFloat = -50.0
+        static let topScrollView: CGFloat = 10.0
+        static let leadingScrollView: CGFloat = 10.0
+        static let trailingScrollView: CGFloat = -leadingScrollView
+        static let bottomScrollView: CGFloat = -topScrollView
+        
+        // MARK: - StackView
+        static let topStackView: CGFloat = 15.0
+        static let leadingStackView: CGFloat = 15.0
+        static let trailingStackView: CGFloat = -leadingStackView
+        static let spacingStackView: CGFloat = 5.0
+        static let customSpacingNameLabel: CGFloat = 20.0
+    }
 }

@@ -64,6 +64,12 @@ final class ImagesCollectionController: BaseViewController<ImagesCollectionView>
         return size
     }
     
+    // MARK: - Navigation
+    private func goToDetailInfo(image: Image) {
+        let vc = DetailInfoAssembler.assemble(with: image)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     // MARK: - Rotate orientation
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         rootView.collectionView.performBatchUpdates(nil, completion: nil)
@@ -123,5 +129,13 @@ extension ImagesCollectionController: UICollectionViewDelegateFlowLayout {
         }
         let heightCell = heightImageForCell + AppLayout.ImageCell.topLabel + heightLabel
         return CGSize(width: widthCell, height: heightCell)
+    }
+}
+
+extension ImagesCollectionController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let image = images?[indexPath.row]
+        else {return}
+        goToDetailInfo(image: image)
     }
 }
