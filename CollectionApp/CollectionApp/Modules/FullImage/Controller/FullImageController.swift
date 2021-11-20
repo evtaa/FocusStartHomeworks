@@ -1,5 +1,5 @@
 //
-//  DetailInfoController.swift
+//  FullImageController.swift
 //  CollectionApp
 //
 //  Created by Alexandr Evtodiy on 19.11.2021.
@@ -7,11 +7,10 @@
 
 import UIKit
 
-final class DetailInfoController: BaseViewController<DetailInfoView> {
-    
+final class FullImageController: BaseViewController<FullImageView> {
+
     // MARK: - Properties
     private var image: Image
-    private let tapImageViewGestureRecognizer = UITapGestureRecognizer()
     
     // MARK: - Init
     internal init(image: Image) {
@@ -36,21 +35,15 @@ final class DetailInfoController: BaseViewController<DetailInfoView> {
     // MARK: - Configure
     private func configure() {
         configureNavigationBar()
-        configureTapImageViewGestureRecognizer()
-        configureDetailInfoView()
+        configureFullImageView()
     }
     
     private func configureNavigationBar() {
-        title = AppText.NavigationBar.info
+        title = AppText.NavigationBar.image
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppFonts.systemBold]
     }
     
-    private func configureTapImageViewGestureRecognizer() {
-        rootView.imageView.addGestureRecognizer(tapImageViewGestureRecognizer)
-        tapImageViewGestureRecognizer.addTarget(self, action: #selector(tapImageView))
-    }
-    
-    private func configureDetailInfoView() {
+    private func configureFullImageView() {
         let imageViewModel = ImageViewModelFactory.viewModel(from: image)
         rootView.configure(with: imageViewModel)
     }
@@ -60,20 +53,8 @@ final class DetailInfoController: BaseViewController<DetailInfoView> {
         let height = image.image .size.height
         let width = image.image.size.width
         let ratio = height/width
-        let widthImage = AppLayout.halfScreen
+        let widthImage = rootView.scrollView.bounds.size.width
         let heightImage = ratio * widthImage
-        rootView.configureImageViewConstraint(heightOfImageView: heightImage, widthOfImageView: widthImage)
-    }
-    
-    // MARK: GestureRecognizer
-    @objc private func tapImageView() {
-        goToFullImage(image: image)
-    }
-    
-    
-    // MARK: Navigation
-    private func goToFullImage(image: Image) {
-        let vc = FullImageController(image: image)
-        navigationController?.pushViewController(vc, animated: true)
+        rootView.configureImageViewConstraint(heightOfImageView: heightImage)
     }
 }

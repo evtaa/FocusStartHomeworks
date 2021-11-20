@@ -13,6 +13,7 @@ enum AppText {
     enum NavigationBar {
         static let album = "Альбом"
         static let info = "Инфо"
+        static let image = "Изображение"
     }
     
     // MARK: - ImagesCollection
@@ -40,6 +41,11 @@ enum AppText {
         static let ninthInfo = "Над Антарктикой запрещены полеты вертолетов, так как пингвины, у которых короткая шея, пытаются посмотреть на них и валятся с ног, как домино."
         static let tenthInfo = "Четырехстволка и просто произведение искусства."
         static let eleventhInfo = "Пыльная буря в Австралии."
+    }
+    
+    // MARK: - FullImage
+    enum FullImage {
+        static let info = "Инфо"
     }
 }
 

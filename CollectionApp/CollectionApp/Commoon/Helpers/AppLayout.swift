@@ -38,4 +38,15 @@ enum AppLayout {
         static let spacingStackView: CGFloat = 5.0
         static let customSpacingNameLabel: CGFloat = 20.0
     }
+    
+    enum FullImage {
+        
+        // MARK: - ScrollView
+        static let bottomContentScrollView: CGFloat = 0.0
+        static let topScrollView: CGFloat = 10.0
+        static let leadingScrollView: CGFloat = 10.0
+        static let trailingScrollView: CGFloat = -leadingScrollView
+        static let bottomScrollView: CGFloat = -topScrollView
+    }
+    
 }
