@@ -76,7 +76,8 @@ final class DetailInfoController: BaseViewController<DetailInfoView> {
     
     // MARK: Navigation
     private func goToFullImage(image: Image) {
-        let vc = FullImageAssembler.assemble(with: image)
+        let vc = FullImageController(image: image)
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
 }

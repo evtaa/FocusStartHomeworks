@@ -7,7 +7,7 @@
 
 import UIKit
 
-typealias  DataSource  =  UICollectionViewDiffableDataSource < Section , Image >
+typealias DataSource = UICollectionViewDiffableDataSource <Section , Image>
 typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Image>
 
 enum Section {
@@ -24,11 +24,11 @@ final class ImagesCollectionController: BaseViewController<ImagesCollectionView>
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        applySnapshot(animatingDifferences: false)
+        applySnapshot()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        applySnapshot(animatingDifferences: false)
+        applySnapshot()
     }
     
     // MARK: - Configure
@@ -74,13 +74,13 @@ final class ImagesCollectionController: BaseViewController<ImagesCollectionView>
     
     // MARK: - Navigation
     private func goToDetailInfo(image: Image) {
-        let vc = DetailInfoAssembler.assemble(with: image)
+        let vc = DetailInfoController(image: image)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Rotate orientation
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        applySnapshot(animatingDifferences: false)
+        applySnapshot()
     }
     
     // MARK: - DiffableDataSource
@@ -101,12 +101,12 @@ final class ImagesCollectionController: BaseViewController<ImagesCollectionView>
         return dataSource
     }
     
-    func applySnapshot (animatingDifferences: Bool = true) {
+    func applySnapshot () {
         guard let images = images else {return}
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(images)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 

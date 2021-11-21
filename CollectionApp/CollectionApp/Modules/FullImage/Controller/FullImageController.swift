@@ -8,7 +8,7 @@
 import UIKit
 
 final class FullImageController: BaseViewController<FullImageView> {
-
+    
     // MARK: - Properties
     private var image: Image
     
@@ -35,11 +35,24 @@ final class FullImageController: BaseViewController<FullImageView> {
     // MARK: - Configure
     private func configure() {
         configureFullImageView()
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .close,
+                                          target: self,
+                                          action:  #selector(closeFullImageController))
+        rootView.navigationBar.topItem?.rightBarButtonItem = closeButton
     }
     
     private func configureFullImageView() {
         let imageViewModel = ImageViewModelFactory.viewModel(from: image)
         rootView.configure(with: imageViewModel)
+    }
+    
+    // MARK: - Actions
+    @objc private func closeFullImageController() {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Private functions

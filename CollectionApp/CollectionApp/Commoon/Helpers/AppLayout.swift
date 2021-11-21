@@ -44,11 +44,11 @@ enum AppLayout {
     enum FullImage {
         
         // MARK: - ScrollView
-        static let bottomContentScrollView: CGFloat = 50.0
-        static let topScrollView: CGFloat = 10.0
+        static let bottomContentScrollView: CGFloat = -50.0
+        static let topScrollView: CGFloat = 55.0
         static let leadingScrollView: CGFloat = 10.0
         static let trailingScrollView: CGFloat = -leadingScrollView
-        static let bottomScrollView: CGFloat = -topScrollView
+        static let bottomScrollView: CGFloat = -10.0
     }
     
 }

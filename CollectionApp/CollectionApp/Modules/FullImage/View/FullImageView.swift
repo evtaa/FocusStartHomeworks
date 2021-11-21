@@ -13,6 +13,14 @@ final class FullImageView: UIView {
     private var heightImageViewConstraint: NSLayoutConstraint?
     
     // MARK: - SubView
+    private(set) var navigationBar: UINavigationBar = {
+        let navigationBar = UINavigationBar()
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        let navigationItem = UINavigationItem(title: AppText.NavigationBar.image)
+        navigationBar.setItems([navigationItem], animated: false)
+        return navigationBar
+    }()
+
     private(set) var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +29,7 @@ final class FullImageView: UIView {
         scrollView.backgroundColor = AppColors.background
         return scrollView
     }()
-    
+
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -69,9 +77,14 @@ final class FullImageView: UIView {
     
     private func configureLayoutView() {
         let safeArea = safeAreaLayoutGuide
+        addSubview(navigationBar)
         addSubview(scrollView)
-        
+
         NSLayoutConstraint.activate([
+            navigationBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            navigationBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            navigationBar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            
             scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: safeArea.topAnchor,
                                                              constant: AppLayout.FullImage.topScrollView),
             scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
@@ -80,6 +93,7 @@ final class FullImageView: UIView {
                                                                   constant: AppLayout.FullImage.trailingScrollView),
             scrollView.frameLayoutGuide.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor,
                                                                 constant: AppLayout.FullImage.bottomScrollView),
+            
             scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: scrollView.frameLayoutGuide.topAnchor),
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor),

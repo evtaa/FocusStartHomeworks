@@ -8,7 +8,7 @@
 import UIKit
 
 struct Image {
-    let id = NSUUID()
+    let id = UUID()
     let image: UIImage
     let name: String
     let info: String
