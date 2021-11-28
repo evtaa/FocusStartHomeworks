@@ -97,7 +97,8 @@ final class ImagesCollectionController: UIViewController {
     
     // MARK: - Navigation
     private func goToDetailInfo(image: Image) {
-        
+        let vc = DetailInfoAssembler.assemble(idImage: image.id)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Rotate orientation
