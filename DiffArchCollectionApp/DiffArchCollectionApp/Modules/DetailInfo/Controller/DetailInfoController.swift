@@ -69,6 +69,8 @@ extension DetailInfoController: IDetailInfoController {
     }
     
     func presentFullImage(idImage: UUID) {
-       
+        let vc = FullImageAssembler.assemble(idImage: idImage)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
 }
