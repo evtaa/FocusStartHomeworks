@@ -58,7 +58,8 @@ extension ListCarsController: IListCarsController {
     }
     
     func pushDetailsCar(idOfCar: UUID) {
-        
+        let vc = DetailsCarAssembler.assemble(idOfCar: idOfCar)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

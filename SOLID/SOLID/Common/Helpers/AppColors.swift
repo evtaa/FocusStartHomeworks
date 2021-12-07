@@ -18,4 +18,13 @@ enum AppColors {
             
         }
     }
+    enum DetailsCar {
+        static let textButtonItem = UIColor(named: "buttonColor")
+        static let activityIndicator = UIColor.systemBlue
+        static let textButtonColor = UIColor.white
+        static let buttonColor = UIColor(named: "buttonColor")
+        enum Cell {
+            static let buttonColor = UIColor(named: "buttonColor")
+        }
+    }
 }

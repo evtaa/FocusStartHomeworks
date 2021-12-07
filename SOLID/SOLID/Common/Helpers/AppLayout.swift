@@ -52,4 +52,42 @@ enum AppLayout {
             static let widthButton: CGFloat = 50.0
         }
     }
+    
+    enum DetailsCar {
+        static let tableEstimatedRowHeight: CGFloat = 100.0
+        
+        // MARK: - MainStackView
+        static let spacingMainStackView: CGFloat = 15.0
+        static let customSpacingAfterCostLabel: CGFloat = 8.0
+        static let topMainStackView: CGFloat = 10.0
+        static let leadingMainStackView: CGFloat = 16.0
+        static let trailingMainStackView: CGFloat = -leadingMainStackView
+        static let bottomMainStackView: CGFloat = -topMainStackView
+        
+        // MARK: - Button
+        static let cornerRadiusButton: CGFloat = 25.0
+        static let heightButton: CGFloat = 50.0
+        
+        // MARK: - ImageView
+        static let heightImageView: CGFloat = 200.0
+        
+        enum HeaderCell {
+            static let topTitleLabel: CGFloat = 5.0
+            static let leadingTitleLabel: CGFloat = 0.0
+            static let trailingTitleLabel: CGFloat = -leadingTitleLabel
+            static let bottomTitleLabel: CGFloat = -topTitleLabel
+        }
+        
+        enum Cell {
+            static let spacingMainStackView: CGFloat = 16.0
+            static let topMainStackView: CGFloat = 15.0
+            static let leadingMainStackView: CGFloat = 0.0
+            static let trailingMainStackView: CGFloat = -leadingMainStackView
+            static let bottomTopMainStackView: CGFloat = -topMainStackView
+            static let diametrRadioButton: CGFloat = 16.0
+            static var radiusRadioButton: CGFloat {
+                diametrRadioButton/2
+            }
+        }
+    }
 }

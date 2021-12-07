@@ -35,4 +35,7 @@ enum AppImages{
     static let ladaHatchBack = UIImage(named: "ladaHatchBack") ?? UIImage()
     
     static let errorCar = UIImage(named: "errorCar") ?? UIImage()
+    
+    static let radioButtonEnabled = UIImage(named: "radioButtonEnabled")
+    static let radioButtonDisenabled = UIImage(named: "radioButtonDisenabled")
 }
