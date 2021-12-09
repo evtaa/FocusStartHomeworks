@@ -10,7 +10,7 @@ import UIKit
 protocol IDetailInfoView: UIView {
     var tapGestureRecognizerHandler: (() -> Void)? { get set }
     
-    func configure(with model: ImageViewModel)
+    func configure(with model: IImageViewModel)
     func configureImageViewConstraint(heightOfImageView: CGFloat, widthOfImageView: CGFloat)
 }
 
@@ -81,8 +81,8 @@ final class DetailInfoView: UIView {
      // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureLayout()
-        configureUI()
+        self.configureLayout()
+        self.configureUI()
     }
 
     required init?(coder: NSCoder) {
@@ -91,22 +91,22 @@ final class DetailInfoView: UIView {
     
     // MARK: - Actions
     @objc private func tapImageView() {
-        tapGestureRecognizerHandler?()
+        self.tapGestureRecognizerHandler?()
     }
     
     // MARK: - Private functions
     private func configureUI() {
-        backgroundColor = AppColors.background
+        self.backgroundColor = AppColors.background
     }
     
     private func configureLayout() {
-        configureLayoutView()
-        configureLayoutScrollView()
+        self.configureLayoutView()
+        self.configureLayoutScrollView()
     }
     
     private func configureLayoutView() {
         let safeArea = safeAreaLayoutGuide
-        addSubview(scrollView)
+        self.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
             scrollView.frameLayoutGuide.topAnchor.constraint(equalTo: safeArea.topAnchor,
@@ -125,7 +125,7 @@ final class DetailInfoView: UIView {
     
     private func configureLayoutScrollView() {
         let scrollArea = scrollView.contentLayoutGuide
-        scrollView.addSubview(stackView)
+        self.scrollView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: scrollArea.topAnchor,
@@ -142,7 +142,7 @@ final class DetailInfoView: UIView {
 
 // MARK: - Public IDetailInfoView
 extension DetailInfoView: IDetailInfoView {
-    func configure(with model: ImageViewModel) {
+    func configure(with model: IImageViewModel) {
             imageView.image = model.image
             nameLabel.text = model.name
             infoLabel.text = model.info

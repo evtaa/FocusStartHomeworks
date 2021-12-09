@@ -37,8 +37,8 @@ final class FullImageController: UIViewController {
     override func loadView() {
         let view: IFullImageView = FullImageView()
         self.view = view
-        viewModel.loadView(controller: self, view: rootView)
-        setNotify()
+        self.viewModel.loadView(controller: self, view: rootView)
+        self.setNotify()
     }
     
     override func viewDidLoad() {
@@ -47,16 +47,17 @@ final class FullImageController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        viewModel.configureConstraintsToCurrentImageView()
+        let heightImage = viewModel.calcHeightToImageView()
+        self.viewModel.heightImage.data = heightImage
     }
     
     // MARK: Notify
     private func setNotify() {
-        viewModel.image.setNotify { [weak self] (image) in
+        self.viewModel.image.setNotify { [weak self] (image) in
             self?.rootView.configure(with: ImageViewModelFactory.viewModel(from: image) )
         }
         
-        viewModel.heightImage.setNotify { [weak self] (heightImage) in
+        self.viewModel.heightImage.setNotify { [weak self] (heightImage) in
             self?.rootView.configureImageViewConstraint(heightOfImageView: heightImage)
         }
     }
@@ -65,6 +66,6 @@ final class FullImageController: UIViewController {
 // MARK: - IFullImageController
 extension FullImageController: IFullImageController {
     func closeFullImageController() {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

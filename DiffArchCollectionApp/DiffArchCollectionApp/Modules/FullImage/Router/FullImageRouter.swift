@@ -21,6 +21,6 @@ final class FullImageRouter
 //MARK: IDetailInfoRouter
 extension FullImageRouter: IFullImageRouter {
     func closeFullImage() {
-        closeFullImageHandler?()
+        self.closeFullImageHandler?()
     }
 }

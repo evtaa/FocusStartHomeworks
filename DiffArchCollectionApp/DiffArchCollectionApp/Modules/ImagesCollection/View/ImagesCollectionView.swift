@@ -33,8 +33,8 @@ final class ImagesCollectionView: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
-        configureLayout()
+        self.configureUI()
+        self.configureLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -43,12 +43,12 @@ final class ImagesCollectionView: UIView {
     
     // MARK: - Private functions
     private func configureUI() {
-        backgroundColor = AppColors.background
+        self.backgroundColor = AppColors.background
     }
     
     private func configureLayout() {
         let safeArea = safeAreaLayoutGuide
-        addSubview(collectionView)
+        self.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: safeArea.topAnchor),

@@ -49,7 +49,7 @@ final class ImagesMock {
                                   name: AppText.ImagesCollection.eleventhName,
                                   info: AppText.ImagesCollection.eleventhInfo)
         
-        images = [firstImage,
+        self.images = [firstImage,
                   secondImage,
                   thirdImage,
                   fourthImage,

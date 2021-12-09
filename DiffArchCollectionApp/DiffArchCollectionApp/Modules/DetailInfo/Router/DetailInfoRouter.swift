@@ -21,7 +21,7 @@ final class DetailInfoRouter
 //MARK: IDetailInfoRouter
 extension DetailInfoRouter: IDetailInfoRouter {
     func goToFullImage() {
-        goToFullImageHandler?()
+        self.goToFullImageHandler?()
     }
 }
 

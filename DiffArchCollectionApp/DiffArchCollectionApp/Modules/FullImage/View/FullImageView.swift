@@ -10,7 +10,7 @@ import UIKit
 protocol IFullImageView: UIView {
     var closeControllerHandler: (() -> Void)? { get set }
     
-    func configure(with model: ImageViewModel)
+    func configure(with model: IImageViewModel)
     func configureImageViewConstraint(heightOfImageView: CGFloat)
     func getWidthScrollView() -> CGFloat
 }
@@ -57,8 +57,8 @@ final class FullImageView: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureLayout()
-        configureUI()
+        self.configureLayout()
+        self.configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -67,22 +67,22 @@ final class FullImageView: UIView {
     
     // MARK: - Private functions
     @objc private func closeFullImageController() {
-        closeControllerHandler?()
+        self.closeControllerHandler?()
     }
     
     private func configureUI() {
-        backgroundColor = AppColors.background
+        self.backgroundColor = AppColors.background
     }
     
     private func configureLayout() {
-        configureLayoutView()
-        configureLayoutScrollView()
+        self.configureLayoutView()
+        self.configureLayoutScrollView()
     }
     
     private func configureLayoutView() {
         let safeArea = safeAreaLayoutGuide
-        addSubview(navigationBar)
-        addSubview(scrollView)
+        self.addSubview(navigationBar)
+        self.addSubview(scrollView)
 
         NSLayoutConstraint.activate([
             navigationBar.topAnchor.constraint(equalTo: safeArea.topAnchor),
@@ -106,7 +106,7 @@ final class FullImageView: UIView {
     
     private func configureLayoutScrollView() {
         let scrollArea = scrollView.contentLayoutGuide
-        scrollView.addSubview(imageView)
+        self.scrollView.addSubview(imageView)
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: scrollArea.topAnchor),
@@ -121,7 +121,7 @@ final class FullImageView: UIView {
 // MARK: - IFullImageView
 extension FullImageView: IFullImageView {
     
-    func configure(with model: ImageViewModel) {
+    func configure(with model: IImageViewModel) {
         imageView.image = model.image
     }
     

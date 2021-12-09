@@ -5,10 +5,11 @@
 //  Created by Alexandr Evtodiy on 26.11.2021.
 //
 
-import Foundation
+import UIKit
 
 protocol IDetailInfoPresenter {
-    func configureConstraintsToImageView()
+    func calcWidthAndHeightToImageView() -> (heightOfImageView: CGFloat,
+                                             widthOfImageView: CGFloat)
     func loadView(controller: IDetailInfoController,
                   view: IDetailInfoView)
 }
@@ -38,49 +39,49 @@ final class DetailInfoPresenter {
     private func configureDetailInfoView() {
         guard let image = model.getImage(idImage: idImage)
         else {return}
-        view?.configure(with: ImageViewModelFactory.viewModel(from: image))
+        self.view?.configure(with: ImageViewModelFactory.viewModel(from: image))
     }
     
     // MARK: - Actions
     private func setHandlers() {
-        view?.tapGestureRecognizerHandler = {[weak self] in
+        self.view?.tapGestureRecognizerHandler = {[weak self] in
             self?.tapGestureRecognizer()
         }
         
-        router.goToFullImageHandler = {[weak self] in
+        self.router.goToFullImageHandler = {[weak self] in
             guard let self = self else {return}
             self.controller?.presentFullImage(idImage: self.idImage)
         }
     }
     
     private func tapGestureRecognizer() {
-        router.goToFullImage()
+        self.router.goToFullImage()
     }
 }
 
 // MARK: - IDetailInfoPresenter
 extension DetailInfoPresenter: IDetailInfoPresenter {
-    func configureConstraintsToImageView() {
-        guard let image = model.getImage(idImage: idImage)
-        else {return}
+    func calcWidthAndHeightToImageView() -> (heightOfImageView: CGFloat, widthOfImageView: CGFloat) {
+        guard let image = model.getImage(idImage: idImage),
+              let widthView = view?.bounds.size.width
+        else {return (0,0)}
         let height = image.image .size.height
         let width = image.image.size.width
         let ratio = height/width
-        guard let widthView = view?.bounds.size.width else {
-            return
-        }
         let widthImage = widthView/2
         let heightImage = ratio * widthImage
-        view?.configureImageViewConstraint(heightOfImageView: heightImage, widthOfImageView: widthImage)
+        return (heightImage, widthImage)
     }
     
     func loadView(controller: IDetailInfoController,
                   view: IDetailInfoView) {
         self.controller = controller
         self.view = view
-        configureDetailInfoView()
-        configureConstraintsToImageView()
+        self.configureDetailInfoView()
+        let sizeOfImage = calcWidthAndHeightToImageView()
+        view.configureImageViewConstraint(heightOfImageView: sizeOfImage.heightOfImageView,
+                                          widthOfImageView: sizeOfImage.widthOfImageView)
         controller.configure()
-        setHandlers()
+        self.setHandlers()
     }
 }

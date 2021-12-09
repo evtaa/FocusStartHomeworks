@@ -39,26 +39,30 @@ final class DetailInfoController: UIViewController {
     override func loadView() {
         let rootView: IDetailInfoView = DetailInfoView()
         self.view = rootView
-        presenter.loadView(controller: self, view: rootView)
+        self.presenter.loadView(controller: self, view: rootView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        self.configure()
     }
-
+    
     override func viewWillLayoutSubviews() {
-        presenter.configureConstraintsToImageView()
+        let size = presenter.calcWidthAndHeightToImageView()
+        self.rootView.configureImageViewConstraint(heightOfImageView: size.heightOfImageView,
+                                                   widthOfImageView: size.widthOfImageView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        presenter.configureConstraintsToImageView()
+        let size = presenter.calcWidthAndHeightToImageView()
+        self.rootView.configureImageViewConstraint(heightOfImageView: size.heightOfImageView,
+                                                   widthOfImageView: size.widthOfImageView)
     }
     
     // MARK: - Private functions
     private func configureNavigationBar() {
-        title = AppText.NavigationBar.info
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppFonts.systemBold]
+        self.title = AppText.NavigationBar.info
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppFonts.systemBold]
     }
 }
 

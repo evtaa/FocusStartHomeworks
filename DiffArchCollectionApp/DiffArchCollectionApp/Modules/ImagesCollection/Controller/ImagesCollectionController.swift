@@ -51,30 +51,30 @@ final class ImagesCollectionController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        applySnapshot()
+        self.configure()
+        self.applySnapshot()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        applySnapshot()
+        self.applySnapshot()
     }
     
     // MARK: - Configure
     private func configure() {
-        configureNavigationBar()
-        configureCollectionView()
+        self.configureNavigationBar()
+        self.configureCollectionView()
     }
     
     private func configureNavigationBar() {
-        title = AppText.NavigationBar.album
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppFonts.systemBold]
+        self.title = AppText.NavigationBar.album
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppFonts.systemBold]
     }
     
     private func configureCollectionView() {
-        rootView.collectionView.register(ImageCollectionCell.self)
-        rootView.collectionView.delegate = self
+        self.rootView.collectionView.register(ImageCollectionCell.self)
+        self.rootView.collectionView.delegate = self
     }
     
     // MARK: - Private functions
@@ -98,12 +98,12 @@ final class ImagesCollectionController: UIViewController {
     // MARK: - Navigation
     private func goToDetailInfo(image: Image) {
         let vc = DetailInfoAssembler.assemble(idImage: image.id)
-        navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Rotate orientation
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        applySnapshot()
+        self.applySnapshot()
     }
     
     // MARK: - Public function
@@ -133,7 +133,7 @@ final class ImagesCollectionController: UIViewController {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(images)
-        dataSource.apply(snapshot, animatingDifferences: false)
+        self.dataSource.apply(snapshot, animatingDifferences: false)
     }
 }
 
@@ -159,8 +159,8 @@ extension ImagesCollectionController: UICollectionViewDelegateFlowLayout {
         guard let imagesItem = dataSource.itemIdentifier(for: indexPath)
         else {return CGSize()}
         let ratio = imagesItem.image.size.height/imagesItem.image.size.width
-        let widthCell = getWidthOfPhotoCollectionView(for: collectionView, spacing: AppLayout.ImageCell.spacing)
-        let heightLabel = getLabelTextSize(text: imagesItem.name, font: AppFonts.smallSystem, maxWidthLabel: widthCell).height
+        let widthCell = self.getWidthOfPhotoCollectionView(for: collectionView, spacing: AppLayout.ImageCell.spacing)
+        let heightLabel = self.getLabelTextSize(text: imagesItem.name, font: AppFonts.smallSystem, maxWidthLabel: widthCell).height
         let heightImageForCell = ceil(ratio * widthCell)
         if let cell = collectionView.cellForItem(at: indexPath) as? IImageCollectionCell {
             cell.configureConstraint(heightImage: heightImageForCell, heightLabel: heightLabel)
@@ -174,7 +174,7 @@ extension ImagesCollectionController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let image = dataSource.itemIdentifier(for: indexPath)
         else {return}
-        goToDetailInfo(image: image)
+        self.goToDetailInfo(image: image)
     }
 }
 

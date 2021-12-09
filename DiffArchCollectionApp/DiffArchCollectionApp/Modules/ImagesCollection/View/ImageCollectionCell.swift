@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IImageCollectionCell: UICollectionViewCell {
-    func configure(with model: ImageViewModel)
+    func configure(with model: IImageViewModel)
     func configureConstraint( heightImage: CGFloat, heightLabel: CGFloat)
 }
 
@@ -40,8 +40,8 @@ final class ImageCollectionCell: UICollectionViewCell {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
-        configureLayoutContentView()
+        self.configureUI()
+        self.configureLayoutContentView()
     }
     
     required init?(coder: NSCoder) {
@@ -50,15 +50,15 @@ final class ImageCollectionCell: UICollectionViewCell {
     
     // MARK: - Private functions
     private func configureUI() {
-        backgroundColor = AppColors.background
-        contentView.backgroundColor = AppColors.background
+        self.backgroundColor = AppColors.background
+        self.contentView.backgroundColor = AppColors.background
     }
     
     // MARK: - ConfigureLayout
     private func configureLayoutContentView() {
         let safeArea = contentView.safeAreaLayoutGuide
-        contentView.addSubview(imageView)
-        contentView.addSubview(nameLabel)
+        self.contentView.addSubview(imageView)
+        self.contentView.addSubview(nameLabel)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
@@ -74,7 +74,7 @@ final class ImageCollectionCell: UICollectionViewCell {
 // MARK: - Public IImageCollectionCell
 extension ImageCollectionCell: IImageCollectionCell {
     
-    func configure(with model: ImageViewModel) {
+    func configure(with model: IImageViewModel) {
         imageView.image = model.image
         nameLabel.text = model.name
     }

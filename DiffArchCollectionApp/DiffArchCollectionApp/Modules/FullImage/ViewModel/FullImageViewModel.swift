@@ -11,7 +11,7 @@ protocol IFullImageViewModel {
     var image: Observable<Image> { get set }
     var heightImage: Observable<CGFloat> { get set }
     
-    func configureConstraintsToCurrentImageView()
+    func calcHeightToImageView() -> (CGFloat)
     func loadView(controller: IFullImageController,
                   view: IFullImageView)
 }
@@ -56,45 +56,47 @@ final class FullImageViewModel {
     
     // MARK: - Actions
     private func setHandlers() {
-        view?.closeControllerHandler = {[weak self] in
+        self.view?.closeControllerHandler = {[weak self] in
             self?.closeController()
         }
         
-        router.closeFullImageHandler = {[weak self] in
+        self.router.closeFullImageHandler = {[weak self] in
             self?.controller?.closeFullImageController()
         }
     }
     
     private func closeController() {
-        router.closeFullImage()
+        self.router.closeFullImage()
     }
 }
 
 // MARK: - IFullImageViewModel
 extension FullImageViewModel: IFullImageViewModel {
     
-    func configureConstraintsToCurrentImageView() {
+    func calcHeightToImageView() -> (CGFloat) {
+        guard let widthImage = view?.getWidthScrollView()
+        else { return 0 }
         let image = self.image.data
         let height = image.image .size.height
         let width = image.image.size.width
         let ratio = height/width
-        guard let widthImage = view?.getWidthScrollView()
-        else { return }
-        let heightImage = ratio * widthImage
-        self.heightImage.data = heightImage
+        return ratio * widthImage
     }
     
     func loadView(controller: IFullImageController,
                   view: IFullImageView) {
         self.controller = controller
         self.view = view
-        configureFullImageView()
-        configureConstraintsToCurrentImageView()
-        setHandlers()
+        self.configureFullImageView()
+        let heightImage = calcHeightToImageView()
+        self.heightImage.data = heightImage
+        self.setHandlers()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) { [weak self] in
             DispatchQueue.main.async { [weak self] in
+                guard let heightImage = self?.calcHeightToImageView()
+                else { return }
                 self?.configureRandomFullImageView()
-                self?.configureConstraintsToCurrentImageView()
+                self?.heightImage.data = heightImage
             }
         }
     }
