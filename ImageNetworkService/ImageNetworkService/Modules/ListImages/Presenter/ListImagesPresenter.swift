@@ -37,6 +37,26 @@ final class ListImagesPresenter {
     
     // MARK: - Actions
     private func setHandlers() {
+        tableViewDataHandler.pauseButtonTouchUpInsideHandler = { [weak self] cell in
+            if let indexPath = self?.view?.getIndexPathFromCell(cell),
+               let downloads = self?.model.getItemDownloads() {
+                let download = downloads[indexPath.row]
+                self?.networkService.pauseDownload(download: download, completion: {
+                    download.isDownloading = false
+                    DispatchQueue.main.async {
+                        self?.view?.reloadRow(indexPath.row)
+                    }
+                })
+            }
+        }
+        tableViewDataHandler.resumeButtonTouchUpInsideHandler = { [weak self] cell in
+            if let indexPath = self?.view?.getIndexPathFromCell(cell),
+               let downloads = self?.model.getItemDownloads() {
+                let download = downloads[indexPath.row]
+                self?.networkService.resumeDownload(download: download)
+            }
+        }
+        
         searchControllerDataHandler.searchButtonClickedHandler = { [weak self] text in
             let expectedCharSet = NSCharacterSet.urlQueryAllowed
             guard let searchTerm = text.addingPercentEncoding(withAllowedCharacters: expectedCharSet),
