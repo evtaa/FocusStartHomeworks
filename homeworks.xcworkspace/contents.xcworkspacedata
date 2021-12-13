@@ -14,6 +14,9 @@
       location = "group:CollectionApp/CollectionApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:ImageNetworkService/ImageNetworkService.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:DiffArchCollectionApp/DiffArchCollectionApp.xcodeproj">
    </FileRef>
 </Workspace>
