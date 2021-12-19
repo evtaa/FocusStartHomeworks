@@ -16,4 +16,7 @@
    <FileRef
       location = "group:DiffArchCollectionApp/DiffArchCollectionApp.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:&#x421;ompanyEmployees/&#x421;ompanyEmployees.xcodeproj">
+   </FileRef>
 </Workspace>
