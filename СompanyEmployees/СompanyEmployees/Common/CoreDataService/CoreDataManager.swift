@@ -22,6 +22,18 @@ protocol ICompanyStorage {
     func loadCompanies(completion: @escaping (Result<[CompanyModel], Error>) -> Void)
 }
 
+protocol IEmployeeStorage {
+    var updateEmployees: (() -> Void)? { get set }
+    
+    func save(employee: EmployeeModel,
+               completion: @escaping (Error?) -> Void)
+    func remove(employee: EmployeeModel,
+                completion: @escaping (Error?) -> Void)
+    func loadEmployees(for company: CompanyModel,
+                       completion: @escaping (Result<[EmployeeModel], Error>) -> Void)
+    
+}
+
 final class CoreDataManager {
     
     // MARK: - Properties
@@ -31,6 +43,7 @@ final class CoreDataManager {
     
     // MARK: - Handlers
     var updateCompanies: (() -> Void)?
+    var updateEmployees: (() -> Void)?
     
     // MARK: - Container
     private lazy var container: NSPersistentContainer = {
@@ -111,4 +124,71 @@ extension CoreDataManager: ICompanyStorage {
         }
     }
 }
+
+// MARK: - IEmployeeStorage
+extension CoreDataManager: IEmployeeStorage {
+    func save(employee: EmployeeModel,
+               completion: @escaping (Error?) -> Void) {
+        container.performBackgroundTask { [weak self] context in
+            let request: NSFetchRequest<Company> = Company.fetchRequest()
+            request.predicate = NSPredicate(format: "\(#keyPath(Company.uid)) = '\(employee.companyUid)'")
+            do {
+                let company = try context.fetch(request).first
+                let object = Employee(context: context)
+                object.uid = employee.uid
+                object.name = employee.name
+                object.age = Int32(employee.age)
+                object.experience = Int32(employee.experience ?? 0)
+                object.company = company
+                try context.save()
+                self?.updateEmployees?()
+                DispatchQueue.main.async { completion(nil) }
+            } catch {
+                print(error.localizedDescription)
+                DispatchQueue.main.async { completion(error) }
+            }
+        }
+    }
+    
+    
+    func remove(employee: EmployeeModel,
+                completion: @escaping (Error?) -> Void) {
+        container.performBackgroundTask {[weak self] context in
+            let request: NSFetchRequest<Employee> = Employee.fetchRequest()
+            request.predicate = NSPredicate(format: "\(#keyPath(Employee.uid)) = %@",
+                                            employee.uid.uuidString)
+            do {
+                if let object = try context.fetch(request).first {
+                    context.delete(object)
+                    try context.save()
+                    self?.updateEmployees?()
+                    DispatchQueue.main.async { completion(nil) }
+                }
+            } catch {
+                print(error.localizedDescription)
+                DispatchQueue.main.async { completion(error) }
+            }
+        }
+    }
+    
+    func loadEmployees(for company: CompanyModel,
+                       completion: @escaping (Result<[EmployeeModel], Error>) -> Void) {
+        let request: NSFetchRequest<Employee> = Employee.fetchRequest()
+        request.predicate = NSPredicate(format: "ANY company.uid = '\(company.uid)'")
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        do {
+            let employeesModels = try mainContext.fetch(request).compactMap{
+                EmployeeModel(employee: $0) }
+            DispatchQueue.main.async{ completion(.success(employeesModels)) }
+        }
+        catch {
+            print(error.localizedDescription)
+            DispatchQueue.main.async { completion(.failure(error)) }
+        }
+    }
+
+}
+
+
+
 

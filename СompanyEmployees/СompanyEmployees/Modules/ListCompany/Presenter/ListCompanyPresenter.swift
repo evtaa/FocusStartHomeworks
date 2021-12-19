@@ -59,6 +59,9 @@ final class ListCompanyPresenter {
         }
         
         router.goToListEmployeeDataHandler = { [weak self] company in
+            guard let employeeStorage = self?.companyStorage as? IEmployeeStorage
+            else { return }
+            self?.controller?.goToListEmployee(employeeStorage: employeeStorage, company: company)
             
         }
         

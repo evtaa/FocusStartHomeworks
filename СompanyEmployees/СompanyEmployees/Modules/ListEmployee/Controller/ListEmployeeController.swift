@@ -1,30 +1,32 @@
 //
-//  ListCompanyController.swift
-//  MVP
+//  ListEmployeeController.swift
+//  СompanyEmployees
 //
-//  Created by Alexandr Evtodiy on 09.12.2021.
+//  Created by Alexandr Evtodiy on 15.12.2021.
 //
 
 import UIKit
 
-protocol IListCompanyController: UIViewController {
+import UIKit
+
+protocol IListEmployeeController: UIViewController {
     func configure()
-    func goToAddCompany(companyStorage: ICompanyStorage)
-    func goToListEmployee(employeeStorage: IEmployeeStorage, company: CompanyModel)
+    func goToAddEmployee(employeeStorage: IEmployeeStorage,
+                         company: CompanyModel)
     func showAlert(error: Error)
 }
 
-final class ListCompanyController: UIViewController, ShowAlert {
+class ListEmployeeController: UIViewController, ShowAlert {
 
     // MARK: Properties
-    private let presenter: IListCompanyPresenter
-    private var rootView: IListCompanyView {
-        view as? IListCompanyView ?? ListCompanyView()
+    private let presenter: IListEmployeePresenter
+    private var rootView: IListEmployeeView {
+        view as? IListEmployeeView ?? ListEmployeeView()
     }
     
     // MARK: Structures
     struct Dependencies {
-        let presenter: IListCompanyPresenter
+        let presenter: IListEmployeePresenter
     }
     
     // MARK: Init
@@ -38,8 +40,8 @@ final class ListCompanyController: UIViewController, ShowAlert {
     }
     // MARK: Life cycles
     override func loadView() {
-        let listCompanyView: IListCompanyView = ListCompanyView()
-        view = listCompanyView
+        let listEmployeeView: IListEmployeeView = ListEmployeeView()
+        view = listEmployeeView
         presenter.loadView(view: rootView, controller: self)
     }
     
@@ -54,25 +56,22 @@ final class ListCompanyController: UIViewController, ShowAlert {
     
     // MARK: Configure
     private func configureNavigationBar() {
-        title = AppText.titleListCompany
+        title = AppText.titleListEmployee
     }
 }
 
-// MARK: IListCompanyController
-extension ListCompanyController: IListCompanyController {
+// MARK: IListEmployeeController
+extension ListEmployeeController: IListEmployeeController {
     
     // MARK: - Configure
     func configure() {
     }
     
     // MARK: - Navigation
-    func goToAddCompany(companyStorage: ICompanyStorage) {
-        let vc = AddCompanyAssembler.assemble(companyStorage: companyStorage)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func goToListEmployee(employeeStorage: IEmployeeStorage, company: CompanyModel) {
-        let vc = ListEmployeeAssembler.assemble(employeeStorage: employeeStorage, company: company)
+    func goToAddEmployee(employeeStorage: IEmployeeStorage,
+                         company: CompanyModel) {
+        let vc = AddEmployeeAssembler.assemble(employeeStorage: employeeStorage,
+                                               company: company)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -80,3 +79,4 @@ extension ListCompanyController: IListCompanyController {
         showError(forViewController: self, withMessage: AppText.alertOfCoreData + ": " + error.localizedDescription)
     }
 }
+
