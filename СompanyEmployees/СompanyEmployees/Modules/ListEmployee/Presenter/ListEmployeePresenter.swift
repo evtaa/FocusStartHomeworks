@@ -66,7 +66,9 @@ final class ListEmployeePresenter {
         }
         
         router.goToEditEmployeeDataHandler = { [weak self] employee in
-
+            guard let employeeStorage = self?.employeeStorage
+            else { return }
+            self?.controller?.goToEditEmployee(employeeStorage: employeeStorage, employee: employee)
         }
         
         tableViewDataHandler.trailingSwipeActionsRowDataHandler = { [weak self] employee in

@@ -13,6 +13,8 @@ protocol IListEmployeeController: UIViewController {
     func configure()
     func goToAddEmployee(employeeStorage: IEmployeeStorage,
                          company: CompanyModel)
+    func goToEditEmployee(employeeStorage: IEmployeeStorage,
+                          employee: EmployeeModel)
     func showAlert(error: Error)
 }
 
@@ -72,6 +74,13 @@ extension ListEmployeeController: IListEmployeeController {
                          company: CompanyModel) {
         let vc = AddEmployeeAssembler.assemble(employeeStorage: employeeStorage,
                                                company: company)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func goToEditEmployee(employeeStorage: IEmployeeStorage,
+                          employee: EmployeeModel) {
+        let vc = EditEmployeeAssembler.assemble(employeeStorage: employeeStorage,
+                                                employee: employee)
         navigationController?.pushViewController(vc, animated: true)
     }
     

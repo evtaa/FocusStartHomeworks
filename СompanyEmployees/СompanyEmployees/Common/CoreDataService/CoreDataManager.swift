@@ -29,6 +29,8 @@ protocol IEmployeeStorage {
                completion: @escaping (Error?) -> Void)
     func remove(employee: EmployeeModel,
                 completion: @escaping (Error?) -> Void)
+    func update (employee: EmployeeModel,
+                 completion: @escaping (Error?) -> Void)
     func loadEmployees(for company: CompanyModel,
                        completion: @escaping (Result<[EmployeeModel], Error>) -> Void)
     
@@ -160,6 +162,28 @@ extension CoreDataManager: IEmployeeStorage {
             do {
                 if let object = try context.fetch(request).first {
                     context.delete(object)
+                    try context.save()
+                    self?.updateEmployees?()
+                    DispatchQueue.main.async { completion(nil) }
+                }
+            } catch {
+                print(error.localizedDescription)
+                DispatchQueue.main.async { completion(error) }
+            }
+        }
+    }
+    
+    func update (employee: EmployeeModel,
+                 completion: @escaping (Error?) -> Void) {
+        container.performBackgroundTask {[weak self] context in
+            let request: NSFetchRequest<Employee> = Employee.fetchRequest()
+            request.predicate = NSPredicate(format: "\(#keyPath(Employee.uid)) = %@",
+                                            employee.uid.uuidString)
+            do {
+                if let object = try? context.fetch(request).first {
+                    object.name = employee.name
+                    object.age = Int32(employee.age)
+                    object.experience = Int32(employee.experience ?? 0)
                     try context.save()
                     self?.updateEmployees?()
                     DispatchQueue.main.async { completion(nil) }
