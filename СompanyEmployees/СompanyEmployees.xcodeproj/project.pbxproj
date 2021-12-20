@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A86EF5A62768DB0800091768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86EF5A52768DB0800091768 /* AppDelegate.swift */; };
 		A86EF5A82768DB0800091768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86EF5A72768DB0800091768 /* SceneDelegate.swift */; };
-		A86EF5B02768DB0800091768 /* _ompanyEmployees.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86EF5AE2768DB0800091768 /* _ompanyEmployees.xcdatamodeld */; };
+		A86EF5B02768DB0800091768 /* CompanyEmployees.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A86EF5AE2768DB0800091768 /* CompanyEmployees.xcdatamodeld */; };
 		A86EF5B22768DB1100091768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A86EF5B12768DB1100091768 /* Assets.xcassets */; };
 		A86EF5B52768DB1100091768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A86EF5B32768DB1100091768 /* LaunchScreen.storyboard */; };
 		A86EF5D12768DCFD00091768 /* ListCompanyAssemble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86EF5C62768DCFD00091768 /* ListCompanyAssemble.swift */; };
@@ -31,8 +31,7 @@
 		A8A3860B27691C6400058159 /* AddCompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3860A27691C6400058159 /* AddCompanyView.swift */; };
 		A8A3860F27691CB900058159 /* AddCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3860E27691CB900058159 /* AddCompanyController.swift */; };
 		A8A3861227691DAF00058159 /* AddCompanyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3861127691DAF00058159 /* AddCompanyPresenter.swift */; };
-		A8A3861527691DF500058159 /* AddCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3861427691DF500058159 /* AddCompanyModel.swift */; };
-		A8A3861827691E5000058159 /*  AddCompanyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3861727691E5000058159 /*  AddCompanyRouter.swift */; };
+		A8A3861827691E5000058159 /* AddCompanyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3861727691E5000058159 /* AddCompanyRouter.swift */; };
 		A8A3861B27691EB600058159 /* AddCompanyAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3861A27691EB600058159 /* AddCompanyAssembler.swift */; };
 		A8A3861F27692F7C00058159 /* ShowAlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A3861E27692F7B00058159 /* ShowAlertProtocol.swift */; };
 		A8B08893276E29D7009992C2 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B08892276E29D7009992C2 /* CompanyModel.swift */; };
@@ -94,8 +93,7 @@
 		A8A3860A27691C6400058159 /* AddCompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyView.swift; sourceTree = "<group>"; };
 		A8A3860E27691CB900058159 /* AddCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyController.swift; sourceTree = "<group>"; };
 		A8A3861127691DAF00058159 /* AddCompanyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyPresenter.swift; sourceTree = "<group>"; };
-		A8A3861427691DF500058159 /* AddCompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyModel.swift; sourceTree = "<group>"; };
-		A8A3861727691E5000058159 /*  AddCompanyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " AddCompanyRouter.swift"; sourceTree = "<group>"; };
+		A8A3861727691E5000058159 /* AddCompanyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyRouter.swift; sourceTree = "<group>"; };
 		A8A3861A27691EB600058159 /* AddCompanyAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyAssembler.swift; sourceTree = "<group>"; };
 		A8A3861E27692F7B00058159 /* ShowAlertProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlertProtocol.swift; sourceTree = "<group>"; };
 		A8B08892276E29D7009992C2 /* CompanyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
@@ -141,6 +139,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A856BB472770AD7000BB5175 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A86EF5F52768E57300091768 /* CompanyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A856BB482770AD8900BB5175 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A8E07ED2276A44DC00660CCD /* EmployeeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A86EF5992768DB0800091768 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +238,7 @@
 		A86EF5C42768DCFD00091768 /* ListCompany */ = {
 			isa = PBXGroup;
 			children = (
+				A856BB472770AD7000BB5175 /* ViewModel */,
 				A86EF5CD2768DCFD00091768 /* View */,
 				A86EF5C92768DCFD00091768 /* Controller */,
 				A86EF5FD2768E7A900091768 /* DataHandler */,
@@ -289,8 +304,6 @@
 			children = (
 				A8B08892276E29D7009992C2 /* CompanyModel.swift */,
 				A8B08895276E29DD009992C2 /* EmployeeModel.swift */,
-				A86EF5F52768E57300091768 /* CompanyViewModel.swift */,
-				A8E07ED2276A44DC00660CCD /* EmployeeViewModel.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -347,7 +360,6 @@
 				A8A3860427691BFA00058159 /* View */,
 				A8A3860527691C0500058159 /* Controller */,
 				A8A3860627691C0C00058159 /* Presenter */,
-				A8A3860727691C1100058159 /* Model */,
 				A8A3860827691C1500058159 /* Router */,
 				A8A3860927691C1B00058159 /* Assembler */,
 			);
@@ -378,18 +390,10 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		A8A3860727691C1100058159 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A8A3861427691DF500058159 /* AddCompanyModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A8A3860827691C1500058159 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				A8A3861727691E5000058159 /*  AddCompanyRouter.swift */,
+				A8A3861727691E5000058159 /* AddCompanyRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -405,6 +409,7 @@
 		A8B088C5276E6E6D009992C2 /* ListEmployee */ = {
 			isa = PBXGroup;
 			children = (
+				A856BB482770AD8900BB5175 /* ViewModel */,
 				A8B088CE276E6E6D009992C2 /* View */,
 				A8B088CA276E6E6D009992C2 /* Controller */,
 				A8B088D1276E6E6D009992C2 /* DataHandler */,
@@ -610,7 +615,7 @@
 			isa = PBXGroup;
 			children = (
 				A8E07F1A276A7B0100660CCD /* CoreDataManager.swift */,
-				A86EF5AE2768DB0800091768 /* _ompanyEmployees.xcdatamodeld */,
+				A86EF5AE2768DB0800091768 /* CompanyEmployees.xcdatamodeld */,
 			);
 			path = CoreDataService;
 			sourceTree = "<group>";
@@ -715,9 +720,9 @@
 				A8B08905276EA131009992C2 /* EditEmployeeController.swift in Sources */,
 				A86EF5D52768DCFD00091768 /* ListCompanyView.swift in Sources */,
 				A8B088EC276E90D8009992C2 /* AddEmployeeAssembler.swift in Sources */,
-				A86EF5B02768DB0800091768 /* _ompanyEmployees.xcdatamodeld in Sources */,
+				A86EF5B02768DB0800091768 /* CompanyEmployees.xcdatamodeld in Sources */,
 				A8E07ED3276A44DC00660CCD /* EmployeeViewModel.swift in Sources */,
-				A8A3861827691E5000058159 /*  AddCompanyRouter.swift in Sources */,
+				A8A3861827691E5000058159 /* AddCompanyRouter.swift in Sources */,
 				A8B08907276EA131009992C2 /* EditEmployeeView.swift in Sources */,
 				A8B088A5276E3F38009992C2 /* Company+CoreDataProperties.swift in Sources */,
 				A8B088A4276E3F38009992C2 /* Company+CoreDataClass.swift in Sources */,
@@ -736,7 +741,6 @@
 				A8A3860F27691CB900058159 /* AddCompanyController.swift in Sources */,
 				A86EF5EE2768E0F400091768 /* ListCompanyCell.swift in Sources */,
 				A86EF5D42768DCFD00091768 /* ListCompanyModel.swift in Sources */,
-				A8A3861527691DF500058159 /* AddCompanyModel.swift in Sources */,
 				A8B088A6276E3F38009992C2 /* Employee+CoreDataClass.swift in Sources */,
 				A86EF5E92768E09900091768 /* AutoReusable.swift in Sources */,
 				A8B08906276EA131009992C2 /* EditEmployeeModel.swift in Sources */,
@@ -935,13 +939,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A86EF5AE2768DB0800091768 /* _ompanyEmployees.xcdatamodeld */ = {
+		A86EF5AE2768DB0800091768 /* CompanyEmployees.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				A86EF5AF2768DB0800091768 /* _ompanyEmployees.xcdatamodel */,
 			);
 			currentVersion = A86EF5AF2768DB0800091768 /* _ompanyEmployees.xcdatamodel */;
-			path = _ompanyEmployees.xcdatamodeld;
+			path = CompanyEmployees.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

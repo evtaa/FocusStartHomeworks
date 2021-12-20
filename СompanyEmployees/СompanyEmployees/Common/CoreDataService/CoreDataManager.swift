@@ -6,7 +6,7 @@
 //
 
 import CoreData
-import UIKit
+
 
 protocol ICoreDataManager {
     func saveContext ()
@@ -49,7 +49,7 @@ final class CoreDataManager {
     
     // MARK: - Container
     private lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "_ompanyEmployees")
+        let container = NSPersistentContainer(name: "CompanyEmployees")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -135,12 +135,17 @@ extension CoreDataManager: IEmployeeStorage {
             let request: NSFetchRequest<Company> = Company.fetchRequest()
             request.predicate = NSPredicate(format: "\(#keyPath(Company.uid)) = '\(employee.companyUid)'")
             do {
-                let company = try context.fetch(request).first
+                guard let company = try context.fetch(request).first
+                else { return }
                 let object = Employee(context: context)
                 object.uid = employee.uid
                 object.name = employee.name
                 object.age = Int32(employee.age)
-                object.experience = Int32(employee.experience ?? 0)
+                if let experience = employee.experience {
+                    object.experience = NSNumber(value: experience)
+                } else {
+                    object.experience = nil
+                }
                 object.company = company
                 try context.save()
                 self?.updateEmployees?()
@@ -183,7 +188,11 @@ extension CoreDataManager: IEmployeeStorage {
                 if let object = try? context.fetch(request).first {
                     object.name = employee.name
                     object.age = Int32(employee.age)
-                    object.experience = Int32(employee.experience ?? 0)
+                    if let experience = employee.experience {
+                        object.experience = NSNumber(value: experience)
+                    } else {
+                        object.experience = nil
+                    }
                     try context.save()
                     self?.updateEmployees?()
                     DispatchQueue.main.async { completion(nil) }

@@ -10,9 +10,7 @@ import UIKit
 final class AddCompanyAssembler {
     static func assemble(companyStorage: ICompanyStorage) -> AddCompanyController {
         let router = AddCompanyRouter()
-        let model = AddCompanyModel()
-        let presenter = AddCompanyPresenter(dependencies: .init(model: model,
-                                                                router: router,
+        let presenter = AddCompanyPresenter(dependencies: .init( router: router,
                                                                 companyStorage: companyStorage))
         let controller = AddCompanyController(dependencies: .init(presenter: presenter))
         return controller

@@ -18,7 +18,6 @@ final class EditEmployeeView: UIView {
     // MARK: - Subviews
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     } ()
     
@@ -26,7 +25,6 @@ final class EditEmployeeView: UIView {
         let stackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField,
                                                        ageLabel, ageTextField,
                                                        experienceLabel, experienceTextField])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -97,6 +95,8 @@ final class EditEmployeeView: UIView {
     
     private func configureMainStackView() {
         let scrollArea = self.scrollView.contentLayoutGuide
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(mainStackView)
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: scrollArea.topAnchor,

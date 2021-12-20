@@ -15,10 +15,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        self.coreDataManager = CoreDataManager()
-        guard let companyStorage = self.coreDataManager as? ICompanyStorage
-        else { return }
-        let vc = ListCompanyAssembler.assemble(companyStorage: companyStorage )
+        let coreDataManager = CoreDataManager()
+        self.coreDataManager = coreDataManager
+        let vc = ListCompanyAssembler.assemble(companyStorage: coreDataManager )
         let nc = UINavigationController(rootViewController: vc)
         window?.rootViewController = nc
         window?.makeKeyAndVisible()

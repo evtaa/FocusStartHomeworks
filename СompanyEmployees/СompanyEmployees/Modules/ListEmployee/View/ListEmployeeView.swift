@@ -24,7 +24,6 @@ final class ListEmployeeView: UIView {
     // MARK: SubViews
     private lazy var mainStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [tableView, addButton])
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.distribution = .fill
         view.alignment = .fill
@@ -41,7 +40,6 @@ final class ListEmployeeView: UIView {
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(AppColors.ListEmployee.buttonTextColor, for: .normal)
         button.backgroundColor = AppColors.ListEmployee.buttonColor
         button.layer.cornerRadius = AppLayout.ListEmployee.addButtonCornerRadius
@@ -69,6 +67,8 @@ final class ListEmployeeView: UIView {
     // MARK: - Configure
     private func configureLayoutView() {
         let safeArea = safeAreaLayoutGuide
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        addButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(mainStackView)
         NSLayoutConstraint.activate([
             addButton.heightAnchor.constraint(equalToConstant: AppLayout.ListEmployee.addButtonHeight),

@@ -22,22 +22,16 @@ final class EmployeeModel {
         self.experience = experience
     }
     
-    init(uid: UUID, companyUid: UUID, name: String, age: Int, experience: Int?) {
-        self.uid = uid
-        self.companyUid = companyUid
-        self.name = name
-        self.age = age
-        self.experience = experience
-    }
-    
     init?(employee: Employee) {
-        guard let companyUid = employee.company?.uid
-        else { return nil }
         self.uid = employee.uid
-        self.companyUid = companyUid
+        self.companyUid = employee.company.uid
         self.name = employee.name
         self.age = Int(employee.age)
-        self.experience = Int(employee.experience)
+        if let experience = employee.experience {
+            self.experience = Int(truncating: experience)
+        } else {
+            self.experience = nil
+        }
     }
     
     func update(name: String, age: Int, experience: Int?) {

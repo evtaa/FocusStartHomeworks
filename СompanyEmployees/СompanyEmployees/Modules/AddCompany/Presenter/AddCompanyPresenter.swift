@@ -14,7 +14,6 @@ protocol IAddCompanyPresenter {
 final class AddCompanyPresenter {
     
     // MARK: - Properties
-    private let model: IAddCompanyModel
     private var router: IAddCompanyRouter
     private let companyStorage: ICompanyStorage
     private weak var view: IAddCompanyView?
@@ -22,14 +21,12 @@ final class AddCompanyPresenter {
     
     // MARK: - Structures
     struct Dependencies {
-        let model: IAddCompanyModel
         let router: IAddCompanyRouter
         let companyStorage: ICompanyStorage
     }
     
     // MARK: - Init
     init(dependencies: Dependencies) {
-        self.model = dependencies.model
         self.router = dependencies.router
         self.companyStorage = dependencies.companyStorage
     }

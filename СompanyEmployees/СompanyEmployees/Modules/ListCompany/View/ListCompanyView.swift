@@ -24,7 +24,6 @@ final class ListCompanyView: UIView {
     // MARK: SubViews
     private lazy var mainStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [tableView, addButton])
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.distribution = .fill
         view.alignment = .fill
@@ -41,7 +40,6 @@ final class ListCompanyView: UIView {
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(AppColors.ListCompany.buttonTextColor, for: .normal)
         button.backgroundColor = AppColors.ListCompany.buttonColor
         button.layer.cornerRadius = AppLayout.ListCompany.addButtonCornerRadius
@@ -69,6 +67,8 @@ final class ListCompanyView: UIView {
     // MARK: - Configure
     private func configureLayoutView() {
         let safeArea = safeAreaLayoutGuide
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        addButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(mainStackView)
         NSLayoutConstraint.activate([
             addButton.heightAnchor.constraint(equalToConstant: AppLayout.ListCompany.addButtonHeight),

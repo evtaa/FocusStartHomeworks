@@ -18,7 +18,6 @@ final class ListEmployeeCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: [nameEmployeeIsLabel,nameEmployeeLabel,
                                                        ageEmployeeIsLabel, ageEmployeeLabel,
                                                        experienceEmployeeIsLabel, experienceEmployeeLabel])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -81,6 +80,7 @@ final class ListEmployeeCell: UITableViewCell {
     
     private func configureLayoutContentView() {
         let safeArea = contentView.safeAreaLayoutGuide
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(mainStackView)
         NSLayoutConstraint.activate([
             
@@ -101,13 +101,13 @@ extension ListEmployeeCell: IListEmployeeCell {
     func configure(with model: IEmployeeViewModel) {
         nameEmployeeLabel.text = model.name
         ageEmployeeLabel.text = model.age
-        if model.experience == "0" {
-            experienceEmployeeLabel.isHidden = true
-            experienceEmployeeIsLabel.isHidden = true
-        } else {
+        if let experience = model.experience {
             experienceEmployeeLabel.isHidden = false
             experienceEmployeeIsLabel.isHidden = false
-            experienceEmployeeLabel.text = model.experience
+            experienceEmployeeLabel.text = experience
+        } else {
+            experienceEmployeeLabel.isHidden = true
+            experienceEmployeeIsLabel.isHidden = true
         }
     }
 }

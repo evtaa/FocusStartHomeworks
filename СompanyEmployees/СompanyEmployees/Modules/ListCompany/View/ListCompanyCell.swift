@@ -15,7 +15,6 @@ final class ListCompanyCell: UITableViewCell {
 
     private let nameCompanyLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
     }()
@@ -32,6 +31,7 @@ final class ListCompanyCell: UITableViewCell {
     
     private func configureLayoutContentView() {
         let safeArea = contentView.safeAreaLayoutGuide
+        nameCompanyLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(nameCompanyLabel)
         NSLayoutConstraint.activate([
             

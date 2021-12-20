@@ -17,11 +17,10 @@ extension Employee {
     }
 
     @NSManaged public var age: Int32
-    @NSManaged public var experience: Int32
+    @NSManaged public var experience: NSNumber?
     @NSManaged public var name: String
     @NSManaged public var uid: UUID
-    @NSManaged public var company: Company?
-
+    @NSManaged public var company: Company
 }
 
 extension Employee : Identifiable {
