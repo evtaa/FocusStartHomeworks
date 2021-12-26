@@ -11,6 +11,9 @@ enum AppColors {
     static let backgroundColor = UIColor.systemBackground
     static let deleteColor = UIColor.systemRed
     
+    enum Converter {
+    }
+    
     enum Auth {
         static let buttonTextNormalColor = UIColor.label
         static let dateLabelTextNormalColor = UIColor.systemGray

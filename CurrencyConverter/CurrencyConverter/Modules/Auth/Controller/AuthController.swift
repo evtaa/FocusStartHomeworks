@@ -63,9 +63,9 @@ extension AuthController: IAuthController {
     
     // MARK: - Navigation
     func goToConverter() {
-//        let vc = MainAssembler.assemble()
-//        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow == true}.last
-//        keyWindow?.rootViewController = vc
+        let vc = MainAssembler.assemble()
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow == true}.last
+        keyWindow?.rootViewController = vc
     }
 }
 

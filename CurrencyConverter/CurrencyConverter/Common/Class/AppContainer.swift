@@ -8,7 +8,7 @@
 import Foundation
 
 final class AppContainer {
-
+    private(set) var networkService = NetworkService()
     private(set) var coreDataService = CoreDataService()
-
+    private(set) var pasteboardService = PasteboardService()
 }

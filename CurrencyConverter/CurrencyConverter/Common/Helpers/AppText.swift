@@ -13,6 +13,11 @@ enum AppText {
     static let done: String = "Done"
     static let back: String = "Back"
     
+    enum Tabs {
+        static let convertor = "Конвертор"
+        static let listCurrency = "Ставки"
+    }
+    
     enum Auth {
         static let enterUsername = "имя пользователя"
         static let enterPassword = "пароль"
@@ -22,4 +27,10 @@ enum AppText {
         static let showErrorCoreData = "Ошибка CoreData: "
     }
     
+    enum Converter {
+        static let title = "Конвертор"
+        static let copyToBuffer = "Копировать в буфер"
+        static let showErrorInternet = "Ошибка сети: "
+        static let dateOfActualRate = "Курс валюты актуален на: "
+    }
 }

@@ -1,0 +1,38 @@
+//
+//  MainController.swift
+//  CurrencyConverter
+//
+//  Created by Alexandr Evtodiy on 26.12.2021.
+//
+
+import Foundation
+
+import UIKit
+
+final class MainController: UITabBarController {
+    
+    // MARK: - Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewControllers = createViewControllers()
+        configureTabBar()
+    }
+
+    // MARK: - Configure
+    private func configureTabBar () {
+        self.selectedIndex = 0
+    }
+    
+    // MARK: - Private functions
+    private func createViewControllers () -> [UIViewController]? {
+        var controllers = [UIViewController]()
+        
+        guard let convertorViewController = ConverterAssembler.assemble()
+        else { return nil }
+        let convertorNavigationController = UINavigationController(rootViewController: convertorViewController)
+        convertorViewController.tabBarItem = UITabBarItem(title: AppText.Tabs.convertor, image: AppImages.Tabs.convertor , selectedImage: AppImages.Tabs.convertorSelect)
+        convertorViewController.tabBarItem.tag = 0
+        controllers.append(convertorNavigationController)
+        return controllers
+    }
+}

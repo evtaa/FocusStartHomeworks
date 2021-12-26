@@ -14,4 +14,12 @@ extension UIButton {
         self.setTitleColor(AppColors.Auth.buttonTextHighlightedColor,
                            for: .highlighted)
     }
+    
+    func setCopyButton() {
+        self.setTitleColor(AppColors.Auth.buttonTextNormalColor,
+                           for: .normal)
+        self.setTitleColor(AppColors.Auth.buttonTextHighlightedColor,
+                           for: .highlighted)
+        self.titleLabel?.font = AppFont.system
+    }
 }
