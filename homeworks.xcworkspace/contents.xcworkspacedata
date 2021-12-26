@@ -16,4 +16,7 @@
    <FileRef
       location = "group:DiffArchCollectionApp/DiffArchCollectionApp.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:CurrencyConverter/CurrencyConverter.xcodeproj">
+   </FileRef>
 </Workspace>
