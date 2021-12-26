@@ -33,4 +33,12 @@ enum AppText {
         static let showErrorInternet = "Ошибка сети: "
         static let dateOfActualRate = "Курс валюты актуален на: "
     }
+    
+    enum ListCurrency {
+        static let  title = "Справка"
+        static let minDateString = "2000-01-01"
+        enum HeaderCell {
+            static let  headerOfTable = "Выберите валюту"
+        }
+    }
 }

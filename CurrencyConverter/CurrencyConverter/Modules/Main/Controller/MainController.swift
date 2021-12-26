@@ -33,6 +33,13 @@ final class MainController: UITabBarController {
         convertorViewController.tabBarItem = UITabBarItem(title: AppText.Tabs.convertor, image: AppImages.Tabs.convertor , selectedImage: AppImages.Tabs.convertorSelect)
         convertorViewController.tabBarItem.tag = 0
         controllers.append(convertorNavigationController)
+        
+        guard let listCurrencyController = ListCurrencyAssembler.assemble()
+        else { return nil }
+        let listCurrencyNavigationController = UINavigationController(rootViewController: listCurrencyController)
+        listCurrencyController.tabBarItem = UITabBarItem(title: AppText.Tabs.listCurrency, image: AppImages.Tabs.listCurrency, selectedImage: AppImages.Tabs.listCurrencySelect)
+        listCurrencyController.tabBarItem.tag = 1
+        controllers.append(listCurrencyNavigationController)
         return controllers
     }
 }

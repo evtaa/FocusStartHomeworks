@@ -82,5 +82,30 @@ enum AppLayout {
         // MARK: valueOfCurrencyStackView
         static let spacingValueOfCurrencyStackView: CGFloat = 5.0
     }
+    
+    enum ListCurrency {
+        
+        // MARK: - TableView
+        static let tableEstimatedRowHeight: CGFloat = 50.0
+        static let topTableView: CGFloat = 10.0
+        static let leadingTableView: CGFloat = 16.0
+        static let trailingTableView: CGFloat = -leadingTableView
+        static let bottomTableView: CGFloat = -topTableView
+        
+        enum Cell {
+            // MARK: - ListCurrencyCell
+            static let topNameAndTypeOfCurrencyLabel: CGFloat = 5.0
+            static let leadingNameAndTypeOfCurrencyLabel: CGFloat = 5.0
+            static let trailingNameAndTypeOfCurrencyLabel: CGFloat = -leadingNameAndTypeOfCurrencyLabel
+            static let bottomNameAndTypeOfCurrencyLabel: CGFloat = -topNameAndTypeOfCurrencyLabel
+        }
+        
+        enum HeaderCell {
+            static let topTitleLabel: CGFloat = 5.0
+            static let leadingTitleLabel: CGFloat = 5.0
+            static let trailingTitleLabel: CGFloat = -leadingTitleLabel
+            static let bottomTitleLabel: CGFloat = -topTitleLabel
+        }
+    }
 }
 
