@@ -18,6 +18,21 @@
 		A87C62F72775039A00CDCDEC /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C62F62775039A00CDCDEC /* AuthRouter.swift */; };
 		A87C62FA277503A600CDCDEC /* AuthAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C62F9277503A600CDCDEC /* AuthAssembler.swift */; };
 		A87C62FE277510FC00CDCDEC /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87C62FD277510FC00CDCDEC /* Button.swift */; };
+		A87D16EE27789B4100D648BF /* RatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D16ED27789B4100D648BF /* RatesView.swift */; };
+		A87D16F227789B5200D648BF /* RatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D16F127789B5200D648BF /* RatesController.swift */; };
+		A87D16F527789B6000D648BF /* RatesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D16F427789B6000D648BF /* RatesPresenter.swift */; };
+		A87D16F827789B6A00D648BF /* RatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D16F727789B6A00D648BF /* RatesModel.swift */; };
+		A87D16FB27789B7600D648BF /* RatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D16FA27789B7600D648BF /* RatesRouter.swift */; };
+		A87D16FE27789B8200D648BF /* RatesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D16FD27789B8200D648BF /* RatesAssembler.swift */; };
+		A87D17022778A46E00D648BF /* RatesTableViewDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D17012778A46E00D648BF /* RatesTableViewDataHandler.swift */; };
+		A87D17092778A5E600D648BF /* RatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D17082778A5E600D648BF /* RatesViewModel.swift */; };
+		A87D170D2778A72E00D648BF /* RatesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D170C2778A72E00D648BF /* RatesDTO.swift */; };
+		A87D17102778A8CC00D648BF /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D170F2778A8CC00D648BF /* Rate.swift */; };
+		A87D17142778A9CD00D648BF /* RatesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D17132778A9CD00D648BF /* RatesViewModelFactory.swift */; };
+		A87D171A2778C0ED00D648BF /* RatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D17192778C0ED00D648BF /* RatesCell.swift */; };
+		A87D171D2778C7B400D648BF /* RatesHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D171C2778C7B400D648BF /* RatesHeaderView.swift */; };
+		A87D17202778C8A900D648BF /* RatesBaseRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D171F2778C8A900D648BF /* RatesBaseRateViewModel.swift */; };
+		A87D17232778C92D00D648BF /* RatesBaseRateViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D17222778C92D00D648BF /* RatesBaseRateViewModelFactory.swift */; };
 		A87D172E2778F5CC00D648BF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D172D2778F5CC00D648BF /* MainController.swift */; };
 		A87D17322778FA3000D648BF /* MainAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D17312778FA3000D648BF /* MainAssembler.swift */; };
 		A87D1736277900EE00D648BF /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87D1735277900EE00D648BF /* AppContainer.swift */; };
@@ -85,6 +100,21 @@
 		A87C62F62775039A00CDCDEC /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		A87C62F9277503A600CDCDEC /* AuthAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssembler.swift; sourceTree = "<group>"; };
 		A87C62FD277510FC00CDCDEC /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		A87D16ED27789B4100D648BF /* RatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesView.swift; sourceTree = "<group>"; };
+		A87D16F127789B5200D648BF /* RatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesController.swift; sourceTree = "<group>"; };
+		A87D16F427789B6000D648BF /* RatesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesPresenter.swift; sourceTree = "<group>"; };
+		A87D16F727789B6A00D648BF /* RatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesModel.swift; sourceTree = "<group>"; };
+		A87D16FA27789B7600D648BF /* RatesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesRouter.swift; sourceTree = "<group>"; };
+		A87D16FD27789B8200D648BF /* RatesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesAssembler.swift; sourceTree = "<group>"; };
+		A87D17012778A46E00D648BF /* RatesTableViewDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesTableViewDataHandler.swift; sourceTree = "<group>"; };
+		A87D17082778A5E600D648BF /* RatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModel.swift; sourceTree = "<group>"; };
+		A87D170C2778A72E00D648BF /* RatesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesDTO.swift; sourceTree = "<group>"; };
+		A87D170F2778A8CC00D648BF /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		A87D17132778A9CD00D648BF /* RatesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesViewModelFactory.swift; sourceTree = "<group>"; };
+		A87D17192778C0ED00D648BF /* RatesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesCell.swift; sourceTree = "<group>"; };
+		A87D171C2778C7B400D648BF /* RatesHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesHeaderView.swift; sourceTree = "<group>"; };
+		A87D171F2778C8A900D648BF /* RatesBaseRateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesBaseRateViewModel.swift; sourceTree = "<group>"; };
+		A87D17222778C92D00D648BF /* RatesBaseRateViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesBaseRateViewModelFactory.swift; sourceTree = "<group>"; };
 		A87D172D2778F5CC00D648BF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		A87D17312778FA3000D648BF /* MainAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembler.swift; sourceTree = "<group>"; };
 		A87D1735277900EE00D648BF /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
@@ -166,6 +196,7 @@
 				A87C62C42774BAD800CDCDEC /* LatestRatesDTO.swift */,
 				A87C62CC2774CB8F00CDCDEC /* ConvertDTO.swift */,
 				A89D8FD62776251D00DDD300 /* SymbolsDTO.swift */,
+				A87D170C2778A72E00D648BF /* RatesDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -250,6 +281,80 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
+		A87D16E627789ACF00D648BF /* Rates */ = {
+			isa = PBXGroup;
+			children = (
+				A87D17062778A57F00D648BF /* ViewModel */,
+				A87D17072778A59900D648BF /* Factory */,
+				A87D16EC27789B2D00D648BF /* View */,
+				A87D16EB27789B2800D648BF /* Controller */,
+				A87D17002778A44800D648BF /* DataHandler */,
+				A87D16EA27789B2000D648BF /* Presenter */,
+				A87D16E927789B1700D648BF /* Model */,
+				A87D16E827789B1100D648BF /* Router */,
+				A87D16E727789B0B00D648BF /* Assembler */,
+			);
+			path = Rates;
+			sourceTree = "<group>";
+		};
+		A87D16E727789B0B00D648BF /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				A87D16FD27789B8200D648BF /* RatesAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		A87D16E827789B1100D648BF /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A87D16FA27789B7600D648BF /* RatesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A87D16E927789B1700D648BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A87D16F727789B6A00D648BF /* RatesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A87D16EA27789B2000D648BF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A87D16F427789B6000D648BF /* RatesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A87D16EB27789B2800D648BF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A87D16F127789B5200D648BF /* RatesController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A87D16EC27789B2D00D648BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A87D16ED27789B4100D648BF /* RatesView.swift */,
+				A87D17192778C0ED00D648BF /* RatesCell.swift */,
+				A87D171C2778C7B400D648BF /* RatesHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A87D17002778A44800D648BF /* DataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				A87D17012778A46E00D648BF /* RatesTableViewDataHandler.swift */,
+			);
+			path = DataHandler;
+			sourceTree = "<group>";
+		};
 		A87D17042778A51100D648BF /* Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +368,24 @@
 			children = (
 				A89D8FE6277655CB00DDD300 /* ConvertorViewModelFactory.swift */,
 				A89D900827768A0C00DDD300 /* ConverterSymbolViewModelFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		A87D17062778A57F00D648BF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A87D17082778A5E600D648BF /* RatesViewModel.swift */,
+				A87D171F2778C8A900D648BF /* RatesBaseRateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A87D17072778A59900D648BF /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				A87D17132778A9CD00D648BF /* RatesViewModelFactory.swift */,
+				A87D17222778C92D00D648BF /* RatesBaseRateViewModelFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -435,6 +558,7 @@
 				A87C62DA2775024900CDCDEC /* Auth */,
 				A8BA9C7F2772724300B4DE5F /* Converter */,
 				A89D8FB6277617AA00DDD300 /* ListCurrency */,
+				A87D16E627789ACF00D648BF /* Rates */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -580,6 +704,7 @@
 				A89D8FDC27764B7D00DDD300 /* Convertor.swift */,
 				A8D6E46327774C2B0093A6D9 /* Symbol.swift */,
 				A8D6E4932777C8F50093A6D9 /* InfoForRates.swift */,
+				A87D170F2778A8CC00D648BF /* Rate.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -676,9 +801,11 @@
 				A89D8FC8277618F600DDD300 /* ListCurrencyPresenter.swift in Sources */,
 				A8BA9C8D2772724400B4DE5F /* ConverterPresenter.swift in Sources */,
 				A8BA9C912772724400B4DE5F /* ConverterRouter.swift in Sources */,
+				A87D171D2778C7B400D648BF /* RatesHeaderView.swift in Sources */,
 				A87D17322778FA3000D648BF /* MainAssembler.swift in Sources */,
 				A89D8FCB2776194300DDD300 /* ListCurrencyModel.swift in Sources */,
 				A8BA9C8C2772724400B4DE5F /* ConverterAssemble.swift in Sources */,
+				A87D170D2778A72E00D648BF /* RatesDTO.swift in Sources */,
 				A89D8FAF2775F86100DDD300 /* PasteboardService.swift in Sources */,
 				A89D900927768A0C00DDD300 /* ConverterSymbolViewModelFactory.swift in Sources */,
 				A89D8FE42776555600DDD300 /* ConverterViewModel.swift in Sources */,
@@ -687,12 +814,18 @@
 				A8BA9C6727726F6800B4DE5F /* CurrencyConverter.xcdatamodeld in Sources */,
 				A8D6E48F2777A63B0093A6D9 /* ListCurrencyTableViewDataHandler.swift in Sources */,
 				A87C62C52774BAD800CDCDEC /* LatestRatesDTO.swift in Sources */,
+				A87D16F827789B6A00D648BF /* RatesModel.swift in Sources */,
+				A87D17142778A9CD00D648BF /* RatesViewModelFactory.swift in Sources */,
 				A8D6E48B2777A40E0093A6D9 /* ListCurrencyHeaderView.swift in Sources */,
 				A8D3DFCC27734F0200A5C632 /* AppImages.swift in Sources */,
 				A87C62FA277503A600CDCDEC /* AuthAssembler.swift in Sources */,
+				A87D17022778A46E00D648BF /* RatesTableViewDataHandler.swift in Sources */,
 				A8D3E0002773B96400A5C632 /* NavigationController.swift in Sources */,
+				A87D16F227789B5200D648BF /* RatesController.swift in Sources */,
 				A87C62F42775038D00CDCDEC /* AuthModel.swift in Sources */,
+				A87D16F527789B6000D648BF /* RatesPresenter.swift in Sources */,
 				A89D9006277689BA00DDD300 /* ConvertorSymbolViewModel.swift in Sources */,
+				A87D17232778C92D00D648BF /* RatesBaseRateViewModelFactory.swift in Sources */,
 				A8E513552775179300296133 /* UserModel.swift in Sources */,
 				A87C62F72775039A00CDCDEC /* AuthRouter.swift in Sources */,
 				A8D3DFE12773623E00A5C632 /* AppColor.swift in Sources */,
@@ -706,7 +839,10 @@
 				A8D3DFD02773583300A5C632 /* AppFont.swift in Sources */,
 				A87D172E2778F5CC00D648BF /* MainController.swift in Sources */,
 				A89D8FD72776251D00DDD300 /* SymbolsDTO.swift in Sources */,
+				A87D17202778C8A900D648BF /* RatesBaseRateViewModel.swift in Sources */,
+				A87D16FE27789B8200D648BF /* RatesAssembler.swift in Sources */,
 				A87C62CA2774BE5A00CDCDEC /* ShowAlertProtocol.swift in Sources */,
+				A87D171A2778C0ED00D648BF /* RatesCell.swift in Sources */,
 				A8D6E46427774C2B0093A6D9 /* Symbol.swift in Sources */,
 				A87D173B277909C400D648BF /* Resources.swift in Sources */,
 				A8D3DFF027738D1900A5C632 /* ConverterTextFieldDataHandler.swift in Sources */,
@@ -716,13 +852,16 @@
 				A87C62E82775031300CDCDEC /* AuthController.swift in Sources */,
 				A8D3DFC727734AEC00A5C632 /* AppLayout.swift in Sources */,
 				A8BA9C8E2772724400B4DE5F /* ConverterController.swift in Sources */,
+				A87D16EE27789B4100D648BF /* RatesView.swift in Sources */,
 				A87C62AE2774982900CDCDEC /* NetworkService.swift in Sources */,
 				A8D3E0042773BA9300A5C632 /* TextField.swift in Sources */,
 				A89D8FDD27764B7D00DDD300 /* Convertor.swift in Sources */,
 				A87C62CD2774CB8F00CDCDEC /* ConvertDTO.swift in Sources */,
+				A87D16FB27789B7600D648BF /* RatesRouter.swift in Sources */,
 				A8E5134F2775169000296133 /* User+CoreDataProperties.swift in Sources */,
 				A87D1736277900EE00D648BF /* AppContainer.swift in Sources */,
 				A8D3DFFC2773AEC400A5C632 /* AppText.swift in Sources */,
+				A87D17092778A5E600D648BF /* RatesViewModel.swift in Sources */,
 				A8D6E4942777C8F50093A6D9 /* InfoForRates.swift in Sources */,
 				A8BA9C8F2772724400B4DE5F /* ConverterModel.swift in Sources */,
 				A89D8FC4277618B500DDD300 /* ListCurrencyController.swift in Sources */,
@@ -730,6 +869,7 @@
 				A89D8FBE2776184700DDD300 /* ListCurrencyView.swift in Sources */,
 				A8D6E47D27779D490093A6D9 /* ListCurrencyCell.swift in Sources */,
 				A89D8FE7277655CB00DDD300 /* ConvertorViewModelFactory.swift in Sources */,
+				A87D17102778A8CC00D648BF /* Rate.swift in Sources */,
 				A89D8FCE2776196700DDD300 /* ListCurrencyRouter.swift in Sources */,
 				A8D6E47A27779C760093A6D9 /* AutoReusable.swift in Sources */,
 			);

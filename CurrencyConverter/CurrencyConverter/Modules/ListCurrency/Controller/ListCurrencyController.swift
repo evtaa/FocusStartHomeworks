@@ -93,9 +93,9 @@ extension ListCurrencyController: IListCurrencyController {
     }
     
     func goToRates(infoForRates: InfoForRates) {
-//        guard let vc = RatesAssembler.assemble(infoForRates: infoForRates)
-//        else { return }
-//        navigationController?.pushViewController(vc, animated: true)
+        guard let vc = RatesAssembler.assemble(infoForRates: infoForRates)
+        else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
    

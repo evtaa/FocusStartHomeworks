@@ -107,5 +107,30 @@ enum AppLayout {
             static let bottomTitleLabel: CGFloat = -topTitleLabel
         }
     }
+    
+    enum Rates {
+        // MARK: - TableView
+        static let tableEstimatedRowHeight: CGFloat = 50.0
+        static let topTableView: CGFloat = 10.0
+        static let leadingTableView: CGFloat = 16.0
+        static let trailingTableView: CGFloat = -leadingTableView
+        static let bottomTableView: CGFloat = -topTableView
+        
+        enum Cell {
+            // MARK: MainStackView
+            static let spacingMainStackView: CGFloat = 5.0
+            static let topMainStackView: CGFloat = 5.0
+            static let leadingMainStackView: CGFloat = 5.0
+            static let trailingMainStackView: CGFloat = -leadingMainStackView
+            static let bottomMainStackView: CGFloat = -topMainStackView
+        }
+        
+        enum HeaderCell {
+            static let topTitleLabel: CGFloat = 5.0
+            static let leadingTitleLabel: CGFloat = 5.0
+            static let trailingTitleLabel: CGFloat = -leadingTitleLabel
+            static let bottomTitleLabel: CGFloat = -topTitleLabel
+        }
+    }
 }
 

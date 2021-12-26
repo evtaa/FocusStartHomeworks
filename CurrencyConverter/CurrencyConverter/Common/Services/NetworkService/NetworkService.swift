@@ -18,6 +18,11 @@ protocol INetworkService
                               source: Source,
                               completion: @escaping (Result<ConvertDTO, Error>) -> Void)
     func fetchSymbolsCurrency(completion: @escaping (Result<SymbolsDTO, Error>) -> Void)
+    func fetchHistory (date: Date,
+                       base: String,
+                       places: Places,
+                       source: Source,
+                       completion: @escaping (Result<RatesDTO, Error>) -> Void)
 }
 
 final class NetworkService: NSObject {
@@ -112,6 +117,27 @@ extension NetworkService: INetworkService {
         guard let url = urlComponents.url
         else { return }
         loadData(url: url) { (result: Result<SymbolsDTO,Error>) in
+            completion(result)
+        }
+    }
+    
+    func fetchHistory (date: Date,
+                       base: String,
+                       places: Places,
+                       source: Source,
+                       completion: @escaping (Result<RatesDTO, Error>) -> Void) {
+        var urlComponents = self.urlComponents
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        urlComponents.path = "/\(dateString)"
+        let queryItems = [URLQueryItem(name: "base", value: base),
+                          URLQueryItem(name: "places", value: places.rawValue),
+                          URLQueryItem(name: "source", value: source.rawValue)]
+        urlComponents.queryItems = queryItems
+        guard let url = urlComponents.url
+        else { return }
+        loadData(url: url) { (result: Result<RatesDTO,Error>) in
             completion(result)
         }
     }

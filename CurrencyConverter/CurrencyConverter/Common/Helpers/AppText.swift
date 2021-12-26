@@ -41,4 +41,8 @@ enum AppText {
             static let  headerOfTable = "Выберите валюту"
         }
     }
+    
+    enum Rates {
+        static let  title = "Ставки"
+    }
 }
