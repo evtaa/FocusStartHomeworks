@@ -117,6 +117,7 @@ final class ListCurrencyPresenter {
                     }
                 })
                 self?.model.arrayOfSymbol = arrayOfSymbol
+                self?.model.sortArrayOfSymbol()
                 completion(true)
             case .failure(let error):
                 let description = error.localizedDescription

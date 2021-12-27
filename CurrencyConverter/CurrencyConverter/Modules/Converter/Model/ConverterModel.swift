@@ -12,6 +12,7 @@ protocol IConverterModel {
     var arrayOfSymbol: [Symbol]? { get set }
     
     func setInitTypeAndNameForInputOutput()
+    func sortArrayOfSymbol()
 }
 
 final class ConverterModel {
@@ -48,5 +49,15 @@ extension ConverterModel: IConverterModel{
                 convertor?.nameOfCurrencyOutput = name
             }
         }
+    }
+    
+    func sortArrayOfSymbol() {
+        let sortArrayOfSymbol = arrayOfSymbol?.sorted(by: {
+            guard let firstRate = $0.code,
+                  let secondRate = $1.code
+            else { return false }
+            return firstRate < secondRate
+        })
+        arrayOfSymbol = sortArrayOfSymbol
     }
 }

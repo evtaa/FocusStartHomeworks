@@ -233,6 +233,7 @@ final class ConverterPresenter {
                     }
                 })
                 self?.model.arrayOfSymbol = arrayOfSymbol
+                self?.model.sortArrayOfSymbol()
                 guard let arrayOfSymbolModel = self?.model.arrayOfSymbol
                 else { return }
                 self?.model.setInitTypeAndNameForInputOutput()
