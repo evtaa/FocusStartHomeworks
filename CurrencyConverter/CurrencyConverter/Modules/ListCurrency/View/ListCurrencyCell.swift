@@ -26,6 +26,8 @@ final class ListCurrencyCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureLayoutContentView()
+        contentView.backgroundColor = UIColor.clear
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder: NSCoder) {

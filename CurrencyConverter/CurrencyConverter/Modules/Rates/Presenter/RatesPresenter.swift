@@ -151,6 +151,7 @@ extension RatesPresenter: IRatesPresenter {
                     if let arrayOfSymbols = arrayOfSymbols {
                         self?.getArrayOfRate(arrayOfSymbol: arrayOfSymbols, completion: { isFetched in
                             if (isFetched) {
+                                self?.model.sortArrayOfRate()
                                 guard let arrayOfRate = self?.model.arrayOfRate,
                                       let baseRate = self?.model.baseRate
                                 else { return }

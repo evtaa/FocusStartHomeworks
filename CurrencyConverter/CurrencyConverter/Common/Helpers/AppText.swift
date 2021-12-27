@@ -19,6 +19,7 @@ enum AppText {
     }
     
     enum Auth {
+        static let title = "Конвертор валют"
         static let enterUsername = "имя пользователя"
         static let enterPassword = "пароль"
         static let authorization = "Авторизация"

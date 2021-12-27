@@ -19,7 +19,9 @@ enum AppLayout {
         
         // MARK: MainStackView
         static let spacingMainStackView: CGFloat = 10.0
-        static let topMainStackView: CGFloat = 100.0
+        static let customSpacingAfterTitleLabel: CGFloat = 60.0
+        
+        static let topMainStackView: CGFloat = 40.0
         static let leadingMainStackView: CGFloat = 16.0
         static let trailingMainStackView: CGFloat = -leadingMainStackView
         static let bottomMainStackView: CGFloat = -topMainStackView

@@ -35,7 +35,9 @@ final class ListCurrencyHeaderView: UITableViewHeaderFooterView {
     
     // MARK: - Configure
     private func configureUI() {
-        contentView.backgroundColor =  AppColors.backgroundColor
+        tintColor = AppColors.clearColor
+        contentView.backgroundColor = AppColors.backgroundColor
+        backgroundColor = AppColors.backgroundColor
     }
     
     private func configureLayoutContentView() {

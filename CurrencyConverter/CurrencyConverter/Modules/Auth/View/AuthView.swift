@@ -43,7 +43,8 @@ final class AuthView: UIView {
     } ()
     
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [usernameTextField,
+        let stackView = UIStackView(arrangedSubviews: [tittleLabel,
+                                                       usernameTextField,
                                                        passwordTextField,
                                                        authorizationButton,
                                                        registrationButton])
@@ -51,7 +52,18 @@ final class AuthView: UIView {
         stackView.distribution = .fill
         stackView.alignment = .fill
         stackView.spacing = AppLayout.Auth.spacingMainStackView
+        stackView.setCustomSpacing(AppLayout.Auth.customSpacingAfterTitleLabel,
+                                   after: tittleLabel)
         return stackView
+    }()
+    
+    private let tittleLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.text = AppText.Auth.title
+        label.font = AppFont.bigSystemBold
+        label.textAlignment = .center
+        return label
     }()
     
     private lazy var doneToolBar: UIToolbar = {

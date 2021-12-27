@@ -8,9 +8,10 @@
 import UIKit
 
 enum AppColors {
-    static let backgroundColor = UIColor.systemBackground
+    static let backgroundColor = UIColor.secondarySystemBackground
     static let deleteColor = UIColor.systemRed
-    
+    static let clearColor = UIColor.clear
+     
     enum Converter {
     }
     

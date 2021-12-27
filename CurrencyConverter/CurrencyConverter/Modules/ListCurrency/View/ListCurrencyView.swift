@@ -80,6 +80,7 @@ final class ListCurrencyView: UIView {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = UIColor.clear
         tableView.estimatedRowHeight = AppLayout.ListCurrency.tableEstimatedRowHeight
         return tableView
     }()

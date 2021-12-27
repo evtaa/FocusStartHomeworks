@@ -34,6 +34,7 @@ final class RatesView: UIView {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = AppLayout.ListCurrency.tableEstimatedRowHeight
+        tableView.backgroundColor = UIColor.clear
         return tableView
     }()
     
